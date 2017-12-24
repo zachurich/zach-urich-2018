@@ -1,0 +1,141 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.08);
+  z-index: 99999;
+  .container {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 20px;
+    @media screen and (min-width: $mobile) {
+      padding: 0 20px;
+    }
+  }
+  .site-brand {
+    @include fontSize(17px);
+    position: relative;
+    z-index: 3;
+    display: inline-flex;
+    margin: 0;
+    padding: 20px 15px 20px 0;
+    box-shadow: 8px 0px 10px -1px white;
+    @media screen and (min-width: $mobile) {
+      box-shadow: none;
+    }
+    a {
+      @include fontSize(15px);
+      white-space: nowrap;
+      color: $black;
+      @media screen and (min-width: $mobile) {
+        @include fontSize(16px);
+      }
+    }
+    span {
+      transition: color 0.1s ease-in-out;
+    }
+    @for $i from 1 through length($colors) {
+      span:nth-child(#{$i}):hover {
+        color: nth($colors, $i);
+      }
+    }
+  }
+  .items {
+    position: relative;
+    display: inline-flex;
+    justify-self: flex-end;
+    min-width: 250px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    justify-content: unset;
+    margin: 0;
+    z-index: 2;
+    @media screen and (min-width: $mobile) {
+      justify-content: flex-end;
+      margin: 0 0 0 auto;
+      min-width: 400px;
+      box-shadow: none;
+    }
+    .item {
+      position: relative;
+      z-index: 2;
+      padding: 20px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.nav,
+.footer__nav {
+  .icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+    padding: 0;
+  }
+}
+
+.item {
+  @each $color in $colors {
+    $i: index($colors, $color);
+    &:nth-of-type(#{$i}) {
+      color: #{$color};
+      transition: color 0.2s ease-in-out;
+      svg,
+      path,
+      rect {
+        fill: $color;
+      }
+      &:hover,
+      &:active {
+        transform: none;
+      }
+      &:not(.hover-cancel):hover,
+      &:not(.hover-cancel):active {
+        animation: none;
+        color: lighten($color, 20%);
+        @media screen and (min-width: $mobile) {
+          color: white;
+        }
+        .icon {
+          * {
+            fill: lighten($color, 20%);
+            @media screen and (min-width: $mobile) {
+              fill: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.hoverPill {
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(1);
+  margin-top: 5px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  background-color: $blue;
+  box-shadow: 0 5px 15px -5px $black;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  padding: 0px 2px; // opacity: 0.1;
+  transition: transform 0.2s ease-in-out, opacity 0.1s ease-in-out;
+  @media screen and (max-width: $mobile) {
+    display: none;
+  }
+}

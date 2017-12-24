@@ -1,0 +1,35 @@
+.intro {
+  padding-top: 244px;
+  padding-bottom: 224px;
+  @media (max-width: $small) and (max-height: 736px) {
+    padding: 0;
+  }
+  &__box {
+    text-align: center;
+    max-width: 350px;
+    margin: auto;
+    height: auto;
+    @media (max-width: $small) and (max-height: 736px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(100vh - 57px);
+    }
+    h1,
+    span {
+      transition: color 0.05s ease-in-out;
+    }
+    h1 {
+      white-space: nowrap;
+      cursor: default;
+      &:hover {
+        color: $black;
+      }
+      @for $i from 1 through length($colors) {
+        span:nth-child(#{$i}):hover {
+          color: nth($colors, $i);
+        }
+      }
+    }
+  }
+}

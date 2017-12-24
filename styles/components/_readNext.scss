@@ -1,0 +1,16 @@
+.readNext {
+  // flex-basis: 50%;
+  background-color: white;
+  box-shadow: $trendyShadow;
+  padding: 20px;
+  text-transform: uppercase;
+  font-style: italic;
+  color: $red;
+  border-radius: 10px;
+  &__link {
+    font-style: initial;
+    color: $textColor;
+    padding-left: 1rem;
+    text-decoration: underline;
+  }
+}

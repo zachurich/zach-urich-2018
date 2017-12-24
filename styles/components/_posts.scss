@@ -1,0 +1,185 @@
+.projects {
+  &.background {
+    background: $blue;
+    background-image: linear-gradient(
+      360deg,
+      rgb(81, 56, 255) 0%,
+      rgb(90, 67, 255) 46%,
+      rgb(117, 102, 255) 100%
+    );
+  }
+  padding: 60px 0; // @media (max-width: $small) and (max-height: 736px) {
+  //   padding: 0 0 60px;
+  // }
+  &__heading {
+    color: white;
+    text-align: center;
+    margin: 0 auto 60px;
+    background: $black;
+    max-width: 480px;
+    box-shadow: $diffusedShadow;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .icon {
+      padding: 22px; // margin-right: 20px;
+    }
+    h2 {
+      padding: 14px 30px 14px 0;
+      margin-bottom: 0;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+/**
+* Individual Cards
+*/
+
+.project {
+  display: flex;
+  flex-direction: column;
+  box-shadow: $coloredBGShadow;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  min-height: 374px;
+  flex-basis: 100%;
+  &.two-column {
+    @media screen and (min-width: $small) {
+      flex-basis: calc( (100% + 30px)/2 - 30px);
+    }
+  }
+  &__heading {
+    position: relative;
+    background: white;
+    padding: 30px;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid #eee;
+    z-index: 2;
+    h3 {
+      display: inline-block;
+      line-height: 1;
+      color: $black;
+      font-weight: bold;
+      margin: 0;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+  &__date {
+    position: absolute;
+    bottom: -12px;
+    left: 30px;
+    background: $yellow;
+    padding: 2px 20px;
+    border-radius: 20px;
+    @include fontSize(13px);
+    box-shadow: 0px 6px 14.72px 1.28px rgba(255, 207, 42, 0.4);
+  }
+  &__excerpt {
+    position: relative;
+    flex: 1;
+    padding: 30px 30px 40px;
+    background: $bodyColor;
+    border-radius: 0 0 10px 10px;
+    a {
+      position: absolute;
+      bottom: 25px;
+      font-weight: bold;
+      @include fontSize(17px);
+    }
+  }
+}
+
+.post {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow-y: scroll;
+  height: 100%;
+  &__heading {
+    position: relative;
+    display: block;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 1px 0px 0px rgba(56, 53, 77, 0.07);
+    padding: 160px 0 40px;
+    .container {
+      position: static;
+    }
+  }
+  &__title {
+    font-weight: bold;
+    @include fontSize(36px);
+    margin-bottom: 0;
+  }
+  &__date {
+    position: absolute;
+    bottom: -12px;
+    background: $lightYellow;
+    padding: 2px 20px;
+    border-radius: 20px;
+    @include fontSize(14px);
+    box-shadow: 0px 6px 14.72px 1.28px rgba(255, 207, 42, 0.4);
+  }
+  &__container {
+    display: block;
+    background-color: $bodyColor;
+    min-height: 100vh;
+    padding: 0 0 60px;
+    h2 {
+      font-family: $montserrat;
+      @include fontSize(20px);
+      text-transform: uppercase;
+      margin-top: 2.5rem;
+      font-weight: 700;
+    }
+    h3 {
+      font-family: $montserrat;
+      @include fontSize(18px);
+      text-transform: uppercase;
+      margin-top: 2.5rem;
+      font-weight: 700;
+    }
+    ul {
+      padding-left: 2rem;
+      li {
+        font-weight: 500;
+        list-style: none;
+        &:before {
+          content: "• ";
+          position: relative;
+          bottom: 2px;
+          font-weight: bolder;
+          font-size: 18px;
+          vertical-align: middle;
+          color: $blue; /* or whatever color you prefer */
+        }
+      }
+    }
+    img {
+      border-radius: 3px;
+      box-shadow: $diffusedShadow;
+    }
+    blockquote {
+      border-left: 6px solid $red;
+      margin-left: 0;
+      padding-left: 2rem;
+      font-style: italic;
+    }
+    p {
+      color: $blogTextColor;
+      font-weight: 500;
+    }
+  }
+  &__content {
+    padding: 40px 0 2.5rem;
+  }
+  &__footer {
+    padding-top: 3rem;
+  }
+}

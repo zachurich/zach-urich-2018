@@ -1,0 +1,21 @@
+.endOfList {
+  padding: 0 0 80px;
+  text-align: center;
+  p {
+    @include fontSize(18px);
+    font-weight: bold;
+    font-weight: normal;
+    color: white;
+    &:last-of-type {
+      display: inline;
+    }
+  }
+  a {
+    @include fontSize(18px);
+    font-weight: bold;
+    color: $yellow;
+    span {
+      color: white;
+    }
+  }
+}

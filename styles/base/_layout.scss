@@ -1,0 +1,22 @@
+.pattern-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media screen and (min-width: $small) {
+    background-repeat: repeat;
+    background-size: contain;
+  }
+}
+
+.container {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  max-width: 750px;
+  padding: 0 20px;
+  @media screen and (min-width: $small) {
+    padding: 0 30px;
+  }
+}
+
+section {
+}

@@ -1,0 +1,36 @@
+.hero {
+  padding: 186px 0 0;
+  @media (max-width: $small) and (max-height: 736px) {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 57px);
+  }
+  &__heading {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .icon {
+      padding: 15px;
+      background-color: $black;
+      border-radius: 50%;
+      margin: 0 0 20px;
+      @media screen and (min-width: $small) {
+        margin: 0 20px 0 0;
+        height: 80px;
+        width: 80px;
+      }
+    }
+    h1 {
+      display: inline-block;
+      // max-width: 85%;
+      color: white;
+      @include fontSize(38px);
+      font-weight: bold;
+      text-shadow: 0px 2px 6px rgba(27, 27, 27, 0.2);
+    }
+  }
+  &__intro {
+  }
+}

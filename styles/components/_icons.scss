@@ -1,0 +1,77 @@
+.icon {
+  width: 72px;
+  height: 72px;
+  display: inline-block;
+  // background-color: lighten($black, 20%);
+  border-radius: 50%;
+  box-sizing: border-box;
+  padding: 14px;
+  .pencil {
+    &.animate {
+      animation: wiggle 10s ease-in-out infinite;
+    }
+    * {
+      fill: $yellow;
+    }
+  }
+  svg {
+    max-width: 20px;
+    max-height: 20px;
+  }
+  svg,
+  path,
+  rect {
+    transition: 0.2s ease-in-out;
+  }
+
+  path,
+  rect {
+    transform: scale(0.3);
+    @media (min-width: $small) {
+      transform: scale(0.32);
+    }
+  }
+}
+
+$scaleFactor: scale(1.2);
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  45% {
+    transform: rotate(0deg)scale(1);
+  }
+  50% {
+    transform: rotate(0deg) $scaleFactor;
+  }
+  52% {
+    transform: rotate(-50deg) $scaleFactor;
+  }
+  54% {
+    transform: rotate(-45deg) $scaleFactor;
+  }
+  56% {
+    transform: rotate(-60deg) $scaleFactor;
+  }
+  58% {
+    transform: rotate(-50deg) $scaleFactor;
+  }
+  60% {
+    transform: rotate(-65deg) $scaleFactor;
+  }
+  62% {
+    transform: rotate(-45deg) $scaleFactor;
+  }
+  64% {
+    transform: rotate(-55deg) $scaleFactor;
+  }
+  66% {
+    transform: rotate(-50deg) $scaleFactor;
+  }
+  72% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

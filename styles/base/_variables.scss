@@ -1,0 +1,30 @@
+// Break-points
+$mobile: 500px;
+$small: 768px;
+// Colors
+$transWhite: rgba(364, 364, 364, 0.8);
+$red: #fb3a5e;
+$green: #41a356;
+$orange: #fea13a;
+$yellow: #ffc926;
+$lightYellow: #ffcf2a;
+$blue: #5138ff;
+$black: #3f3f3f;
+$darkBlack: #282828;
+$textColor: $black;
+$blogTextColor: #404040;
+$bodyColor: #f6f7fb;
+
+$colors: $blue, $red, $orange, $green, $blue, $red, $orange, $green, $blue, $red,
+  $orange, $green;
+
+// Fonts
+$base-font--size: 16px;
+$regular-size--size: $base-font--size;
+$montserrat: "Montserrat", serif;
+$openSans: "Open Sans", sans-serif;
+// Shadow
+$trendyShadow: 0px 12px 21px 0px rgba(56, 53, 77, 0.16);
+$coloredShadow: 0 5px 15px -5px;
+$coloredBGShadow: 0px 12px 21px 0px rgba(56, 53, 77, 0.4);
+$diffusedShadow: 0 8px 20px -8px rgba(0, 0, 0, 0.4);
