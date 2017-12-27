@@ -1,6 +1,7 @@
 .intro {
   padding-top: 244px;
   padding-bottom: 224px;
+  animation: fadeInUp 0.8s cubic-bezier(0.17, 0, 0, 1) forwards;
   @media (max-width: $small) and (max-height: 736px) {
     padding: 0;
   }

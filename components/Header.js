@@ -13,7 +13,7 @@ const Header = props => {
       <div className="container">
         <h1 className="site-brand">
           <Link prefetch href="/">
-            <a>{title.split("").map((l, i) => <span key={i}>{l}</span>)}</a>
+            <a>{title}</a>
           </Link>
         </h1>
         <Nav nav={nav} onlyIcons={false} showModal={props.showModal} />

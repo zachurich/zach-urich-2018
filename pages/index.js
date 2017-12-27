@@ -13,8 +13,6 @@ import Footer from "../components/Footer";
 import { endpoints, links, nav, about } from "../config";
 import { dummyData } from "../helpers";
 
-import patternMobile from "../static/pattern-mobile.svg";
-
 export default class Landing extends React.Component {
   static async getInitialProps({ req }) {
     const posts = await axios.get(endpoints.blog);
@@ -39,12 +37,7 @@ export default class Landing extends React.Component {
   }
   render() {
     return (
-      <div
-        className="pattern-background"
-        style={{
-          backgroundImage: `url(${patternMobile})`
-        }}
-      >
+      <div className="pattern-background">
         <Head />
         <Header />
         <Intro />

@@ -5,8 +5,6 @@ import xssFilters from "xss-filters";
 
 import { endpoints } from "../config";
 
-import patternMobile from "../static/pattern-mobile.svg";
-
 class Contact extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +19,6 @@ class Contact extends React.Component {
         email: "",
         inquiry: ""
       },
-      formCount: 0,
       useModal: this.props.useModal || null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,14 +26,15 @@ class Contact extends React.Component {
     this.handleFormMessage = this.handleFormMessage.bind(this);
   }
   componentDidMount() {
-    const str = document.cookie
-      .split(";")
-      .filter(str => str.includes("form_submission"))
-      .join("");
-    const count = str.substring(str.indexOf("=") + 1);
-    this.setState({
-      formCount: count
-    });
+    if (localStorage) {
+      const { validation, inputs } = JSON.parse(
+        localStorage.getItem("contact")
+      );
+      this.setState({
+        validation,
+        inputs
+      });
+    }
   }
 
   handleSubmit(e, node) {
@@ -44,10 +42,9 @@ class Contact extends React.Component {
     clearTimeout(this.timer);
     const contact = this.state.inputs;
     // get current amount of form submissions
-    const count = this.state.formCount;
 
     // prevent more than 2 form submissions
-    if (contact.name && contact.email && contact.inquiry && count <= 2) {
+    if (contact.name && contact.email && contact.inquiry) {
       this.setState(previousState => {
         previousState.validation["msg"] = "1 sec...";
         previousState.validation["error"] = false;
@@ -61,12 +58,6 @@ class Contact extends React.Component {
         })
         .then(response => this.handleFormMessage("Submitted!"))
         .catch(error => this.handleFormMessage("Something went wrong :("));
-
-      const date = new Date();
-      document.cookie = `
-        form_submission=${Number(count) + 1}; 
-        expires=${date.setTime(date.getTime() + 3)}
-      `;
     } else {
       this.setState(previousState => {
         previousState.validation["error"] = true;
@@ -104,16 +95,18 @@ class Contact extends React.Component {
   }
   handleFormMessage(msg) {
     // get current amount of form submissions
-    const count = this.state.formCount;
     this.setState(previousState => {
       previousState.validation["msg"] = msg;
       return previousState;
     });
-    document.cookie = `form_submission=${Number(count) + 1}`;
+
+    if (localStorage) {
+      localStorage.setItem("contact", JSON.stringify(this.state));
+    }
 
     // Close the modal if submitted/failed after 2s
     if (this.state.useModal) {
-      setTimeout(() => this.props.history.goBack(), 2000);
+      setTimeout(() => this.props.dismissModal(), 1200);
     }
   }
   render() {
@@ -130,10 +123,7 @@ class Contact extends React.Component {
     return (
       <section
         id="contact"
-        className={`
-          contact wrapper 
-          ${this.state.useModal ? "modal" : ""} 
-          `}
+        className={`contact wrapper ${this.state.useModal ? "modal" : ""} `}
         onClick={e => {
           if (e.target.classList.contains("wrapper")) {
             this.props.dismissModal();
@@ -141,12 +131,9 @@ class Contact extends React.Component {
         }}
       >
         <div
-          className="container"
-          // style={
-          //   this.state.useModal
-          //     ? { backgroundImage: `url(${patternMobile})` }
-          //     : null
-          // }
+          className={`container ${
+            this.state.useModal ? "pattern-background" : ""
+          } `}
         >
           <div className="contact__heading heading">
             <h2 className="uppercase">Get a Hold of Me</h2>
@@ -189,7 +176,7 @@ class Contact extends React.Component {
                 <div className="modal__footer">
                   <div
                     className="modal__close"
-                    onClick={() => this.props.history.goBack()}
+                    onClick={() => this.props.dismissModal()}
                   >
                     <span>Cancel</span>
                   </div>

@@ -85,7 +85,7 @@ a {
   &:hover,
   &:active {
     color: $red;
-    transform: scale(1.1);
+    text-decoration: underline;
   }
 }
 

@@ -2,7 +2,10 @@
   padding: 60px 0;
   &__heading {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+    @media screen and (min-width: $small) {
+      margin-bottom: 60px;
+    }
     h2 {
       margin-bottom: 0;
     }
@@ -106,18 +109,23 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: calc(100% - 40px);
+    padding: 0 20px;
     height: 100vh;
     z-index: 9999;
-    background: rgba($black, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: fadeIn 0.2s ease-in-out forwards;
     .container {
       background-color: $bodyColor;
       background-size: cover;
       border-radius: 10px;
-      padding: 40px 60px;
+      padding: 40px 30px;
+      animation: slideUp 0.8s cubic-bezier(0.17, 0, 0, 1) forwards;
+      @media screen and (min-width: $small) {
+        padding: 40px 60px;
+      }
     }
     &.closed {
       display: none;
@@ -142,17 +150,5 @@
         margin: 0 0 0 20px;
       }
     }
-  }
-}
-
-@keyframes grow {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
   }
 }

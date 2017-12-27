@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 import Contact from "../components/Contact";
 
 import axios from "axios";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import { endpoints, links, nav } from "../config";
 import { dummyData, scrollToTop } from "../helpers";
@@ -29,9 +30,9 @@ class Writing extends React.Component {
     // fetch our posts
     this.fetchPosts();
 
-    if (typeof window !== "undefined") {
-      scrollToTop(800);
-    }
+    // if (typeof window !== "undefined") {
+    //   scrollToTop(800);
+    // }
   }
   fetchPosts() {
     axios.get(endpoints.blog).then(res => {
@@ -50,7 +51,7 @@ class Writing extends React.Component {
     Router.push(`${url.pathname}`);
   }
   render() {
-    const { url, photos } = this.props;
+    const { url } = this.props;
     return (
       <div className="blog">
         <Head />
@@ -68,13 +69,19 @@ class Writing extends React.Component {
         // pageTitle="Drawings"
         // text="Maybe you'd like to check out some of my "
         />
-        {url.query.contact && (
-          <Contact
-            id={url.query.contact}
-            useModal={true}
-            dismissModal={this.dismissModal}
-          />
-        )}
+        <ReactCSSTransitionGroup
+          transitionName="growIn"
+          transitionEnterTimeout={400}
+          transitionLeaveTimeout={400}
+        >
+          {url.query.contact && (
+            <Contact
+              id={url.query.contact}
+              useModal={true}
+              dismissModal={this.dismissModal}
+            />
+          )}
+        </ReactCSSTransitionGroup>
         <Footer nav={nav} links={links} />
       </div>
     );

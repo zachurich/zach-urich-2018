@@ -32,13 +32,10 @@
       @media screen and (min-width: $mobile) {
         @include fontSize(16px);
       }
-    }
-    span {
-      transition: color 0.1s ease-in-out;
-    }
-    @for $i from 1 through length($colors) {
-      span:nth-child(#{$i}):hover {
-        color: nth($colors, $i);
+
+      &:hover {
+        transform: scale(1);
+        letter-spacing: 2px;
       }
     }
   }

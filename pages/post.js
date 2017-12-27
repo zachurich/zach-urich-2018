@@ -1,12 +1,14 @@
 import React from "react";
-import url from "url";
+import Router from "next/router";
 
 import Head from "../components/Head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Contact from "../components/Contact";
 import ReadNext from "../components/ReadNext";
 
 import axios from "axios";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import { endpoints, links, nav } from "../config";
 import Link from "next/link";
@@ -27,6 +29,8 @@ class Post extends React.Component {
       : "";
 
     this.state = { post, readNext: {} };
+    this.showModal = this.showModal.bind(this);
+    this.dismissModal = this.dismissModal.bind(this);
   }
   componentDidMount() {
     if (typeof window !== "undefined") {
@@ -52,7 +56,15 @@ class Post extends React.Component {
     const { url } = this.props;
     return posts.filter(post => post.slug === url.query.slug)[0];
   }
-
+  showModal(e) {
+    e.preventDefault();
+    const { url } = this.props;
+    Router.push(`${url.pathname}?contact=true`);
+  }
+  dismissModal() {
+    const { url, photos } = this.props;
+    Router.push(`${url.pathname}`);
+  }
   // Get all the posts
   fetchPosts() {
     return axios.get(endpoints.blog).then(res => {
@@ -64,15 +76,16 @@ class Post extends React.Component {
     });
   }
   render() {
+    const { url } = this.props;
     return (
       <div>
         <Head />
-        <Header />
+        <Header showModal={this.showModal} />
         <div className="post wrapper">
           {this.state.post ? (
             <div>
               <header
-                className="post__heading"
+                className="post__heading pattern-background pattern-background__small"
                 style={{
                   backgroundImage: `url(${patternMobile})`
                 }}
@@ -91,20 +104,33 @@ class Post extends React.Component {
                     }}
                   />
                   {Object.keys(this.state.readNext).length !== 0 &&
-                  this.state.readNext.slug !== this.state.post.slug ? (
-                    <span>
-                      <hr />
-                      <div className="post__footer">
-                        <ReadNext post={this.state.readNext} />
-                      </div>
-                    </span>
-                  ) : null}
+                    this.state.readNext.slug !== this.state.post.slug && (
+                      <span>
+                        <hr />
+                        <div className="post__footer">
+                          <ReadNext post={this.state.readNext} />
+                        </div>
+                      </span>
+                    )}
                 </div>
               </div>
             </div>
           ) : null}
           <Footer nav={nav} links={links} />
         </div>
+        <ReactCSSTransitionGroup
+          transitionName="growIn"
+          transitionEnterTimeout={400}
+          transitionLeaveTimeout={400}
+        >
+          {url.query.contact && (
+            <Contact
+              id={url.query.contact}
+              useModal={true}
+              dismissModal={this.dismissModal}
+            />
+          )}
+        </ReactCSSTransitionGroup>
       </div>
     );
   }

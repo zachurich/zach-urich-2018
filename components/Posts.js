@@ -15,7 +15,9 @@ const Posts = props => {
       <div className="container">
         {intro ? (
           <div className="projects__heading heading">
-            <Icon className="pencil" icon={Pencil} animate={true} />
+            <Icon className="pencil" animate={true}>
+              <Pencil />
+            </Icon>
             <h2 className="uppercase">Sometimes I Write Things...</h2>
           </div>
         ) : null}
