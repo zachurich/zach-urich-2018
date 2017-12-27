@@ -4,7 +4,7 @@ import Router from "next/router";
 import Head from "../components/Head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Contact from "../components/Contact";
+import ContactHOC from "../components/ContactHOC";
 import ReadNext from "../components/ReadNext";
 
 import axios from "axios";
@@ -12,8 +12,6 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import { endpoints, links, nav } from "../config";
 import Link from "next/link";
-
-import patternMobile from "../static/pattern-mobile.svg";
 
 class Post extends React.Component {
   static async getInitialProps({ req }) {
@@ -62,7 +60,7 @@ class Post extends React.Component {
     Router.push(`${url.pathname}?contact=true`);
   }
   dismissModal() {
-    const { url, photos } = this.props;
+    const { url } = this.props;
     Router.push(`${url.pathname}`);
   }
   // Get all the posts
@@ -84,12 +82,7 @@ class Post extends React.Component {
         <div className="post wrapper">
           {this.state.post ? (
             <div>
-              <header
-                className="post__heading pattern-background pattern-background__small"
-                style={{
-                  backgroundImage: `url(${patternMobile})`
-                }}
-              >
+              <header className="post__heading pattern-background pattern-background__small">
                 <div className="container">
                   <h1 className="post__title">{this.state.post.title}</h1>
                   <span className="post__date">{this.state.post.date}</span>
@@ -118,19 +111,7 @@ class Post extends React.Component {
           ) : null}
           <Footer nav={nav} links={links} />
         </div>
-        <ReactCSSTransitionGroup
-          transitionName="growIn"
-          transitionEnterTimeout={400}
-          transitionLeaveTimeout={400}
-        >
-          {url.query.contact && (
-            <Contact
-              id={url.query.contact}
-              useModal={true}
-              dismissModal={this.dismissModal}
-            />
-          )}
-        </ReactCSSTransitionGroup>
+        <ContactHOC url={url} dismissModal={this.dismissModal} />
       </div>
     );
   }

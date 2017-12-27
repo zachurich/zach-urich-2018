@@ -26,7 +26,7 @@ class Contact extends React.Component {
     this.handleFormMessage = this.handleFormMessage.bind(this);
   }
   componentDidMount() {
-    if (localStorage) {
+    if (localStorage && localStorage.getItem("contact")) {
       const { validation, inputs } = JSON.parse(
         localStorage.getItem("contact")
       );
@@ -125,7 +125,7 @@ class Contact extends React.Component {
         id="contact"
         className={`contact wrapper ${this.state.useModal ? "modal" : ""} `}
         onClick={e => {
-          if (e.target.classList.contains("wrapper")) {
+          if (e.target.classList.contains("modal")) {
             this.props.dismissModal();
           }
         }}

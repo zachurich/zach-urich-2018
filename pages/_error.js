@@ -1,4 +1,5 @@
 import React from "react";
+import Router from "next/router";
 import axios from "axios";
 import xssFilters from "xss-filters";
 
@@ -13,7 +14,7 @@ import Footer from "../components/Footer";
 import { endpoints, links, nav, about } from "../config";
 import { dummyData } from "../helpers";
 
-export default class Landing extends React.Component {
+export default class Error extends React.Component {
   static async getInitialProps({ req }) {
     const posts = await axios.get(endpoints.blog);
     return { posts: posts.data };
@@ -21,11 +22,23 @@ export default class Landing extends React.Component {
   constructor(props) {
     super(props);
     this.state = { posts: this.props.posts.items || dummyData(4) };
+    this.showModal = this.showModal.bind(this);
+    this.dismissModal = this.dismissModal.bind(this);
   }
   componentDidMount() {
     if (this.state.posts.length < 1) {
       this.fetchPosts();
     }
+  }
+  showModal(e) {
+    e.preventDefault();
+    const { url } = this.props;
+    console.log(this.props);
+    Router.push(`${url.pathname}?contact=true`);
+  }
+  dismissModal() {
+    const { url } = this.props;
+    Router.push(`${url.pathname}`);
   }
   fetchPosts() {
     axios.get(endpoints.blog).then(res => {
@@ -35,22 +48,20 @@ export default class Landing extends React.Component {
     });
   }
   render() {
+    console.log(this.props);
+    const { url } = this.props;
     return (
       <div className="pattern-background">
         <Head />
-        <Header />
-        <Intro />
-        <Status content={about} />
-
-        <Posts
-          intro={true}
-          posts={this.state.posts}
-          postAmount={4}
-          layout="two-column"
-          background={true}
-        />
-
-        <Contact />
+        <Header showModal={this.showModal} />
+        <h1>Whoops!</h1>
+        {url.query.contact && (
+          <Contact
+            id={url.query.contact}
+            useModal={true}
+            dismissModal={this.dismissModal}
+          />
+        )}
         <Footer nav={nav} links={links} />
       </div>
     );

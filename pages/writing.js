@@ -7,7 +7,7 @@ import Hero from "../components/Hero";
 import Posts from "../components/Posts";
 import EndOfList from "../components/EndOfList";
 import Footer from "../components/Footer";
-import Contact from "../components/Contact";
+import ContactHOC from "../components/ContactHOC";
 
 import axios from "axios";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
@@ -69,19 +69,7 @@ class Writing extends React.Component {
         // pageTitle="Drawings"
         // text="Maybe you'd like to check out some of my "
         />
-        <ReactCSSTransitionGroup
-          transitionName="growIn"
-          transitionEnterTimeout={400}
-          transitionLeaveTimeout={400}
-        >
-          {url.query.contact && (
-            <Contact
-              id={url.query.contact}
-              useModal={true}
-              dismissModal={this.dismissModal}
-            />
-          )}
-        </ReactCSSTransitionGroup>
+        <ContactHOC url={url} dismissModal={this.dismissModal} />
         <Footer nav={nav} links={links} />
       </div>
     );

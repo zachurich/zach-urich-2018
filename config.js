@@ -1,8 +1,8 @@
 module.exports = {
   title: "Zach Urich",
   endpoints: {
-    blog: "http://site.loc/wp-json/custom/v1/posts",
-    contact: "http://site.loc/wp-json/custom/v1/contact"
+    blog: "http://blog.zachurich.com/wp-json/custom/v1/posts",
+    contact: "http://blog.zachurich.com/wp-json/custom/v1/contact"
   },
   nav: [
     {

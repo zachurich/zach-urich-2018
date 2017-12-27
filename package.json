@@ -1,7 +1,7 @@
 {
-  "name": "WP-React",
+  "name": "zachurich.com",
   "version": "1.0.0",
-  "description": "Custom React Theme to Integrate with the WP Rest API",
+  "description": "zach urich's website & blog",
   "main": "server.js",
   "scripts": {
     "dev": "next dev",
