@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Router from "next/router";
 
 import Icon from "./Icon";
 
@@ -14,11 +15,17 @@ class Nav extends React.Component {
   constructor() {
     super();
 
+    this.showModal = this.showModal.bind(this);
     this.handleAnchorScroll = this.handleAnchorScroll.bind(this);
   }
   componentDidMount() {
     this.handleAnchorScroll();
-    document.addEventListener("DOMContentLoaded", hoverTransitionEffect.init());
+    if (typeof window !== "undefined" && window.innerWidth >= 600) {
+      document.addEventListener(
+        "DOMContentLoaded",
+        hoverTransitionEffect.init()
+      );
+    }
   }
   handleAnchorScroll() {
     // Get all anchors
@@ -47,6 +54,11 @@ class Nav extends React.Component {
       }
     });
   }
+  showModal(e) {
+    e.preventDefault();
+    const { url } = this.props;
+    Router.push(`${url.pathname}?contact=true`);
+  }
   render() {
     let icon = false;
     let props = this.props;
@@ -67,72 +79,39 @@ class Nav extends React.Component {
               icon = Mail;
               break;
           }
-          if (!props.onlyIcons) {
-            if (item.external) {
-              return (
-                <a className="item" key={item.icon} href={item.path}>
-                  <Icon className={item.icon} animate={false}>
-                    {icon()}
-                  </Icon>
-                  {item.name}
-                </a>
-              );
-            } else if (item.modal) {
-              return (
-                <a
-                  key={item.name}
-                  href={this.props.showModal ? "/?contact" : "/#contact"}
-                  className="item"
-                  onClick={
-                    this.props.showModal ? e => this.props.showModal(e) : null
-                  }
-                >
-                  <Icon className={item.icon} animate={false}>
-                    {icon()}
-                  </Icon>
-                  {item.name}
-                </a>
-              );
-            } else {
-              return (
-                <Link prefetch key={item.name} href={item.path}>
-                  <a
-                    href={item.modal && this.props.showModal ? "/?contact" : ""}
-                    className="item"
-                    onClick={
-                      item.modal && this.props.showModal
-                        ? e => this.props.showModal(e)
-                        : null
-                    }
-                  >
-                    <Icon className={item.icon} animate={false}>
-                      {icon()}
-                    </Icon>
-                    {item.name}
-                  </a>
-                </Link>
-              );
-            }
+          if (item.modal || item.external) {
+            return (
+              <a
+                key={item.name}
+                href={
+                  item.modal
+                    ? this.props.url ? "/?contact" : "/#contact"
+                    : item.path
+                }
+                className="item"
+                onClick={
+                  item.modal
+                    ? this.props.url ? e => this.showModal(e) : null
+                    : null
+                }
+              >
+                <Icon className={item.icon} animate={false}>
+                  {icon()}
+                </Icon>
+                {!props.onlyIcons && item.name}
+              </a>
+            );
           } else {
-            if (item.external) {
-              return (
-                <a className="item" key={item.icon} href={item.path}>
+            return (
+              <Link prefetch key={item.icon} href={item.path} prefetch>
+                <a className="item">
                   <Icon className={item.icon} animate={false}>
                     {icon()}
                   </Icon>
+                  {!props.onlyIcons && item.name}
                 </a>
-              );
-            } else {
-              return (
-                <Link prefetch key={item.icon} href={item.path} prefetch>
-                  <a className="item">
-                    <Icon className={item.icon} animate={false}>
-                      {icon()}
-                    </Icon>
-                  </a>
-                </Link>
-              );
-            }
+              </Link>
+            );
           }
         })}
       </div>

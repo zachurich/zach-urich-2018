@@ -83,3 +83,13 @@ export const scrollToTop = scrollDuration => {
       } else clearInterval(scrollInterval);
     }, 15);
 };
+
+export const formatTitle = path => {
+  if (path != "/" && path.indexOf("contact") < 1) {
+    const title = path.split("/").pop();
+    const firstLetter = title.charAt(0).toUpperCase();
+    return `-> ${firstLetter}${title.slice(1)}`;
+  } else {
+    return "";
+  }
+};

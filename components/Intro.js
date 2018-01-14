@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-import { title } from "../config";
+import Blob from "../static/blob.svg";
+
+import { title, intro } from "../config";
 
 const Intro = props => {
   const links = props.links;
@@ -13,7 +15,10 @@ const Intro = props => {
             <h1 className="blue">
               {title.split("").map((l, i) => <span key={i}>{l}</span>)}
             </h1>
-            <h2>Developer building cool stuff on the web.</h2>
+            <h2>{intro}</h2>
+            <div className="intro__blob">
+              <Blob />
+            </div>
           </div>
         </div>
       </div>

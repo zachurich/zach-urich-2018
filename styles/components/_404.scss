@@ -1,0 +1,17 @@
+.fourOhFour {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &__message {
+    text-align: center;
+  }
+  h2 {
+    margin-bottom: 2rem;
+    a {
+      font-size: inherit;
+    }
+  }
+}

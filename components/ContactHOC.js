@@ -1,9 +1,19 @@
 import React from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import Router from "next/router";
 
 import Contact from "./Contact";
 
 export default class ContactHOC extends React.Component {
+  constructor() {
+    super();
+
+    this.dismissModal = this.dismissModal.bind(this);
+  }
+  dismissModal() {
+    const { url } = this.props;
+    Router.push(`${url.pathname}`);
+  }
   render() {
     return (
       <ReactCSSTransitionGroup
@@ -15,7 +25,7 @@ export default class ContactHOC extends React.Component {
           <Contact
             id={this.props.url.query.contact}
             useModal={true}
-            dismissModal={this.props.dismissModal}
+            dismissModal={this.dismissModal}
           />
         )}
       </ReactCSSTransitionGroup>

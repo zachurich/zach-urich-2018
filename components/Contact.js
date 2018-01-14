@@ -136,7 +136,7 @@ class Contact extends React.Component {
           } `}
         >
           <div className="contact__heading heading">
-            <h2 className="uppercase">Get a Hold of Me</h2>
+            <h2>Get a Hold of Me</h2>
           </div>
           <div className="contact__form">
             <form

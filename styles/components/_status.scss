@@ -1,7 +1,7 @@
 .status {
-  padding-bottom: 4.125rem;
+  padding-bottom: 30px;
   @media screen and (min-width: $small) {
-    padding-bottom: 8.125rem;
+    padding-bottom: 60px;
   }
   &__heading {
     text-align: center;
@@ -14,14 +14,13 @@
 
   &__box {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap-reverse;
+    flex-direction: row;
     background: white;
-    padding: 20px 20px;
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px;
     box-shadow: $trendyShadow;
-    @media screen and (min-width: $small) {
-      flex-direction: row;
-      padding: 40px 60px;
+    @media screen and (min-width: $smaller) {
+      flex-wrap: nowrap;
     }
     p:last-child {
       margin-bottom: 0;
@@ -29,23 +28,53 @@
   }
 
   &__text {
-    order: 2;
-    @media screen and (min-width: $small) {
-      flex-basis: 60%;
-      order: 1;
+    display: flex;
+    align-items: center;
+    flex-basis: 100%;
+    text-align: center;
+    padding: 40px 30px;
+    font-weight: 500;
+    @media screen and (min-width: $smallest) {
+      padding: 40px 60px;
+    }
+    @media screen and (min-width: $smaller) {
+      text-align: left;
+      flex-basis: 50%;
     }
   }
 
   &__img {
-    margin-bottom: 30px;
-    background-color: #ddd;
+    background-image: url("/static/me.jpeg");
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px 10px 0 0;
     min-height: 300px;
-    order: 1;
-    @media screen and (min-width: $small) {
+    flex-basis: 100%;
+    @media screen and (min-width: $smallest) {
+      min-height: 400px;
+    }
+    @media screen and (min-width: $smaller) {
+      border-radius: 0 10px 10px 0;
+      border: none;
+      background-image: url("/static/me.jpeg");
       margin-bottom: 0;
-      margin-left: 30px;
-      flex-basis: 40%;
-      order: 2;
+      flex-basis: 50%;
+    }
+
+    img {
+      display: block;
+      border-radius: 5px;
+      box-shadow: $diffusedShadow;
+      background-color: #ddd;
+      max-width: 100%;
+      width: 300px;
+      margin: 0 auto;
+      @media screen and (min-width: $smaller) {
+        margin: 0;
+        max-width: 100%;
+      }
     }
   }
 }

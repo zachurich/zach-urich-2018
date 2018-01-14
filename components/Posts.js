@@ -11,21 +11,21 @@ const Posts = props => {
   const postAmount = props.postAmount;
   const posts = props.posts.slice(0, postAmount);
   return (
-    <section className={`projects wrapper ${background ? "background" : ""}`}>
+    <section className={`writing wrapper ${background ? "background" : ""}`}>
       <div className="container">
         {intro ? (
-          <div className="projects__heading heading">
-            <Icon className="pencil" animate={true}>
+          <div className="writing__heading heading">
+            {/* <Icon className="pencil" animate={true}>
               <Pencil />
-            </Icon>
-            <h2 className="uppercase">Sometimes I Write Things...</h2>
+            </Icon> */}
+            <h2>Writing</h2>
           </div>
         ) : null}
-        <div className="projects__list">
+        <div className="writing__list">
           {posts.map(post => {
             return (
-              <div key={post.id} className={`project ${layout}`}>
-                <div className="project__heading">
+              <div key={post.id} className={`writing-card ${layout}`}>
+                <div className="writing-card__heading">
                   <Link
                     href={{ pathname: "/post", query: { slug: post.slug } }}
                     as={`/writing/${post.slug}`}
@@ -36,14 +36,14 @@ const Posts = props => {
                     </a>
                   </Link>
                   <span
-                    className="project__date uppercase"
+                    className="writing-card__date uppercase"
                     style={post.date ? { opacity: 1 } : { opacity: 0 }}
                   >
                     {post.date}
                   </span>
                 </div>
 
-                <div className="project__excerpt">
+                <div className="writing-card__excerpt">
                   <p
                     dangerouslySetInnerHTML={{
                       __html: post.excerpt
@@ -65,6 +65,11 @@ const Posts = props => {
             );
           })}
         </div>
+        {intro ? (
+          <Link href="/writing" prefetch>
+            <a className="button">View more</a>
+          </Link>
+        ) : null}
       </div>
     </section>
   );

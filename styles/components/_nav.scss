@@ -9,9 +9,15 @@
   .container {
     display: flex;
     align-items: center;
-    padding: 0 0 0 20px;
-    @media screen and (min-width: $mobile) {
+    justify-content: center;
+    padding: 0;
+    flex-wrap: wrap;
+    @media screen and (min-width: $smallest) {
+      flex-wrap: nowrap;
+      justify-content: unset;
       padding: 0 20px;
+    }
+    @media screen and (min-width: $mobile) {
     }
   }
   .site-brand {
@@ -20,17 +26,19 @@
     z-index: 3;
     display: inline-flex;
     margin: 0;
-    padding: 20px 15px 20px 0;
+    padding: 20px 0;
     box-shadow: 8px 0px 10px -1px white;
     @media screen and (min-width: $mobile) {
+      padding: 20px 15px 20px 0;
       box-shadow: none;
     }
     a {
-      @include fontSize(15px);
+      font-weight: 900;
+      @include fontSize(17px);
       white-space: nowrap;
       color: $black;
       @media screen and (min-width: $mobile) {
-        @include fontSize(16px);
+        // @include fontSize(16px);
       }
 
       &:hover {
@@ -44,7 +52,7 @@
     position: relative;
     display: inline-flex;
     justify-self: flex-end;
-    min-width: 250px;
+    // min-width: 250px;
     overflow-x: scroll;
     overflow-y: hidden;
     justify-content: unset;
@@ -53,16 +61,19 @@
     @media screen and (min-width: $mobile) {
       justify-content: flex-end;
       margin: 0 0 0 auto;
-      min-width: 400px;
+      // min-width: 400px;
       box-shadow: none;
     }
     .item {
       position: relative;
       z-index: 2;
-      padding: 20px 15px;
+      padding: 0px 15px 20px;
       display: flex;
       align-items: center;
       justify-content: center;
+      @media screen and (min-width: $smallest) {
+        padding: 20px 15px;
+      }
       &:hover {
         text-decoration: none;
       }
@@ -135,6 +146,7 @@
   top: 0;
   left: 0;
   padding: 0px 2px; // opacity: 0.1;
+  transform: translate(574.078125px, 5px);
   transition: transform 0.2s ease-in-out, opacity 0.1s ease-in-out;
   @media screen and (max-width: $mobile) {
     display: none;

@@ -1,11 +1,12 @@
 .endOfList {
-  padding: 0 0 80px;
+  padding: 0 0 30px;
   text-align: center;
+  @media screen and (min-width: $small) {
+    padding: 0 0 60px;
+  }
   p {
     @include fontSize(18px);
-    font-weight: bold;
-    font-weight: normal;
-    color: white;
+    color: lighten($black, 50%);
     &:last-of-type {
       display: inline;
     }

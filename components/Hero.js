@@ -2,14 +2,16 @@ import React from "react";
 import Link from "next/link";
 
 import Icon from "./Icon";
-import Pencil from "../static/icon_pencil.svg";
+import Writing from "../static/writing.svg";
 
 const Hero = props => {
   return (
     <section className="hero wrapper">
       <div className="container">
+        {/* <div className="hero__illustration">
+          <Writing />
+        </div> */}
         <div className="hero__heading heading">
-          {/* <Icon className="pencil" icon={Pencil} /> */}
           <h1 className="uppercase">Sometimes I Write Things...</h1>
         </div>
         <div className="hero__intro">

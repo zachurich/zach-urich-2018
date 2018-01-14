@@ -5,9 +5,7 @@ import xssFilters from "xss-filters";
 
 import Head from "../components/Head";
 import Header from "../components/Header";
-import Intro from "../components/Intro";
-import Status from "../components/Status";
-import Posts from "../components/Posts";
+import FourOhFour from "../components/FourOhFour";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -33,7 +31,6 @@ export default class Error extends React.Component {
   showModal(e) {
     e.preventDefault();
     const { url } = this.props;
-    console.log(this.props);
     Router.push(`${url.pathname}?contact=true`);
   }
   dismissModal() {
@@ -48,13 +45,12 @@ export default class Error extends React.Component {
     });
   }
   render() {
-    console.log(this.props);
     const { url } = this.props;
     return (
       <div className="pattern-background">
         <Head />
         <Header showModal={this.showModal} />
-        <h1>Whoops!</h1>
+        <FourOhFour url={url.pathname} />
         {url.query.contact && (
           <Contact
             id={url.query.contact}

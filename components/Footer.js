@@ -7,7 +7,7 @@ const Footer = props => {
   return (
     <footer className="footer wrapper">
       <div className="footer__nav">
-        <Nav nav={props.nav} onlyIcons={true} />
+        <Nav nav={props.nav} onlyIcons={true} url={props.url} />
       </div>
       <div className="footer__links">
         {props.links.map((link, i) => {

@@ -1,11 +1,12 @@
 .intro {
   padding-top: 244px;
-  padding-bottom: 224px;
-  animation: fadeInUp 0.8s cubic-bezier(0.17, 0, 0, 1) forwards;
+  padding-bottom: 8.125rem;
+  animation: fadeInUp 0.4s cubic-bezier(0.17, 0, 0, 1) forwards;
   @media (max-width: $small) and (max-height: 736px) {
     padding: 0;
   }
   &__box {
+    position: relative;
     text-align: center;
     max-width: 350px;
     margin: auto;
@@ -16,6 +17,25 @@
       justify-content: center;
       height: calc(100vh - 57px);
     }
+    h1 {
+      margin-bottom: 0;
+      opacity: 0;
+      color: $black;
+      animation: fadeInUp 0.6s cubic-bezier(0.17, 0, 0, 1) forwards;
+      animation-delay: 0.1s;
+    }
+    h2 {
+      font-size: 1.375rem;
+      font-weight: bold;
+      opacity: 0;
+      animation: fadeInUp 0.6s cubic-bezier(0.17, 0, 0, 1) forwards;
+      animation-delay: 0.2s;
+    }
+    h1,
+    h2 {
+      position: relative;
+      z-index: 2;
+    }
     h1,
     span {
       transition: color 0.05s ease-in-out;
@@ -24,13 +44,26 @@
       white-space: nowrap;
       cursor: default;
       &:hover {
-        color: $black;
+        color: white;
       }
       @for $i from 1 through length($colors) {
         span:nth-child(#{$i}):hover {
           color: nth($colors, $i);
         }
       }
+    }
+  }
+
+  &__blob {
+    width: 380px;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .cls-1 {
+      fill: darken($bodyColor, 5%);
+      // fill: lighten($yellow, 20%);
     }
   }
 }

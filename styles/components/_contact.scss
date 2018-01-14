@@ -1,11 +1,14 @@
 .contact {
-  padding: 60px 0;
+  padding: 30px 0;
+  @media screen and (min-width: $small) {
+    padding: 60px 0;
+  }
   &__heading {
     text-align: center;
-    margin-bottom: 40px;
-    @media screen and (min-width: $small) {
-      margin-bottom: 60px;
-    }
+    margin-bottom: 30px;
+    // @media screen and (min-width: $small) {
+    //   margin-bottom: 30px;
+    // }
     h2 {
       margin-bottom: 0;
     }
@@ -62,9 +65,10 @@
 
     textarea {
       flex-basis: 100%;
-      margin-bottom: 60px;
+      margin-bottom: 30px;
       min-height: 25vh;
       @media screen and (min-width: $small) {
+        margin-bottom: 60px;
         min-height: 250px;
       }
     }
@@ -72,7 +76,6 @@
     input[type="text"],
     input[type="email"],
     textarea {
-      font-size: 1rem;
       border-radius: 5px;
       box-sizing: border-box;
       appearance: none;
@@ -80,7 +83,7 @@
       box-shadow: none;
       background: rgba(364, 364, 364, 1);
       border: none;
-      box-shadow: $trendyShadow;
+      box-shadow: $inputShadow;
       padding: 8px 15px;
       transition: 0.1s ease;
       &:hover {
@@ -89,7 +92,7 @@
       &:focus {
         color: $yellow;
         background-color: $black;
-        box-shadow: $coloredShadow $yellow;
+        box-shadow: $trendyShadow;
         &::placeholder {
           color: transparent;
         }

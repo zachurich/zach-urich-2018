@@ -1,8 +1,11 @@
 html,
 body {
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
   font-size: 16px;
   @media screen and (max-width: $small) {
-    font-size: 14px;
+    font-size: 15px;
   }
   font-weight: bold;
   margin: 0;
@@ -15,22 +18,19 @@ body {
 h1 {
   @include fontSize(48px);
   font-family: $montserrat;
-  font-weight: 800;
+  font-weight: 900;
   line-height: 1;
   letter-spacing: 2px;
   margin-top: 0;
   padding-bottom: 1px;
   margin-bottom: 0.5rem;
-  @media screen and (max-width: $mobile) {
-    font-size: 10vw;
-  }
+  text-transform: uppercase;
 }
 
 h2 {
-  @include fontSize(18px);
+  @include fontSize(28px);
   margin-top: 0;
-  font-weight: bold;
-  letter-spacing: 1.5px;
+  font-weight: 800;
 }
 
 h2,
@@ -42,13 +42,12 @@ h4 {
 h1,
 h3,
 h4 {
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
 
 h3 {
-  @include fontSize(17px);
-  font-weight: bolder;
-  letter-spacing: 1px;
+  @include fontSize(22px);
+  font-weight: 700;
 }
 
 p,
@@ -57,7 +56,7 @@ textarea {
   letter-spacing: 0.2px;
   color: $textColor;
   font-family: $openSans;
-  font-size: 1rem;
+  font-size: 1.0625rem;
   margin-top: 0;
   line-height: 2;
 }
@@ -68,17 +67,16 @@ p {
 
 input,
 textarea {
-  font-size: 0.875rem;
+  font-size: 16px;
   font-weight: bold;
   font-family: $openSans;
 }
 
 a {
-  display: inline-block;
+  display: inline;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: bolder;
-  letter-spacing: 1px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
   color: $blue;
   transform: scale(1);
   transition: all 0.1s ease-in-out;

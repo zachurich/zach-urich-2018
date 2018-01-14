@@ -1,4 +1,8 @@
-.projects {
+.writing {
+  padding: 30px 0;
+  @media screen and (min-width: $small) {
+    padding: 60px 0;
+  }
   &.background {
     background: $blue;
     background-image: linear-gradient(
@@ -8,37 +12,18 @@
       rgb(117, 102, 255) 100%
     );
   }
-  padding: 60px 0; // @media (max-width: $small) and (max-height: 736px) {
-  //   padding: 0 0 60px;
-  // }
   &__heading {
     color: white;
     text-align: center;
-    margin: 0 auto 60px;
-    background: $black;
-    max-width: 480px;
-    box-shadow: $diffusedShadow;
+    margin: 0 auto 30px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    .icon {
-      padding: 25px; // margin-right: 20px;
-    }
-    .pencil {
-      &.animate {
-        animation: wiggle 10s ease-in-out infinite;
-      }
-      svg {
-        transform: scale(1.5);
-      }
-      * {
-        transform: none;
-        fill: $yellow;
-      }
-    }
+    // @media screen and (min-width: $small) {
+    //   margin: 0 auto 30px;
+    // }
     h2 {
-      padding: 14px 30px 14px 0;
       margin-bottom: 0;
     }
   }
@@ -47,19 +32,24 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+  .button {
+    @media screen and (min-width: $small) {
+      margin-top: 30px;
+    }
+  }
 }
 
 /**
 * Individual Cards
 */
 
-.project {
+.writing-card {
   display: flex;
   flex-direction: column;
-  box-shadow: $coloredBGShadow;
+  box-shadow: $trendyShadow;
   border-radius: 10px;
   margin-bottom: 30px;
-  min-height: 374px;
+  min-height: 302px;
   flex-basis: 100%;
   > span {
     display: flex;
@@ -78,13 +68,16 @@
     border-radius: 10px 10px 0 0;
     border-bottom: 1px solid #eee;
     z-index: 2;
-    h3 {
-      display: inline-block;
-      line-height: 1;
+    a {
       color: $black;
-      font-weight: bold;
+      text-decoration: underline;
+      &:hover {
+        color: $red;
+      }
+    }
+    h3 {
+      line-height: 1;
       margin: 0;
-      border-bottom: 2px solid rgba(0, 0, 0, 0.2);
     }
   }
   &__date {
@@ -100,12 +93,13 @@
   &__excerpt {
     position: relative;
     flex: 1;
-    padding: 30px 30px 40px;
+    padding: 30px 30px 50px;
     background: $bodyColor;
     border-radius: 0 0 10px 10px;
+    font-weight: 500;
     a {
       position: absolute;
-      bottom: 25px;
+      bottom: 30px;
       font-weight: bold;
       @include fontSize(17px);
     }
@@ -131,7 +125,7 @@
     }
   }
   &__title {
-    font-weight: bold;
+    // font-weight: bold;
     @include fontSize(36px);
     margin-bottom: 0;
   }
@@ -153,16 +147,12 @@
     min-height: 100vh;
     padding: 0 0 60px;
     h2 {
-      font-family: $montserrat;
-      @include fontSize(20px);
-      text-transform: uppercase;
+      // @include fontSize(20px);
       margin-top: 2.5rem;
       font-weight: 700;
     }
     h3 {
-      font-family: $montserrat;
-      @include fontSize(18px);
-      text-transform: uppercase;
+      // @include fontSize(18px);
       margin-top: 2.5rem;
       font-weight: 700;
     }

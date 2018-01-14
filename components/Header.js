@@ -16,7 +16,7 @@ const Header = props => {
             <a>{title}</a>
           </Link>
         </h1>
-        <Nav nav={nav} onlyIcons={false} showModal={props.showModal} />
+        <Nav nav={nav} onlyIcons={false} url={props.url || null} />
       </div>
     </header>
   );

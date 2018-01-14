@@ -1,5 +1,4 @@
 import React from "react";
-import Router from "next/router";
 
 import Head from "../components/Head";
 import Header from "../components/Header";
@@ -27,8 +26,6 @@ class Post extends React.Component {
       : "";
 
     this.state = { post, readNext: {} };
-    this.showModal = this.showModal.bind(this);
-    this.dismissModal = this.dismissModal.bind(this);
   }
   componentDidMount() {
     if (typeof window !== "undefined") {
@@ -54,15 +51,6 @@ class Post extends React.Component {
     const { url } = this.props;
     return posts.filter(post => post.slug === url.query.slug)[0];
   }
-  showModal(e) {
-    e.preventDefault();
-    const { url } = this.props;
-    Router.push(`${url.pathname}?contact=true`);
-  }
-  dismissModal() {
-    const { url } = this.props;
-    Router.push(`${url.pathname}`);
-  }
   // Get all the posts
   fetchPosts() {
     return axios.get(endpoints.blog).then(res => {
@@ -77,8 +65,8 @@ class Post extends React.Component {
     const { url } = this.props;
     return (
       <div>
-        <Head />
-        <Header showModal={this.showModal} />
+        <Head url={url} />
+        <Header url={url} />
         <div className="post wrapper">
           {this.state.post ? (
             <div>
@@ -96,22 +84,21 @@ class Post extends React.Component {
                       __html: this.state.post.content
                     }}
                   />
-                  {Object.keys(this.state.readNext).length !== 0 &&
-                    this.state.readNext.slug !== this.state.post.slug && (
-                      <span>
-                        <hr />
-                        <div className="post__footer">
-                          <ReadNext post={this.state.readNext} />
-                        </div>
-                      </span>
-                    )}
+                  {this.state.readNext && (
+                    <span>
+                      <hr />
+                      <div className="post__footer">
+                        <ReadNext post={this.state.readNext} />
+                      </div>
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
           ) : null}
-          <Footer nav={nav} links={links} />
+          <Footer nav={nav} links={links} url={url} />
         </div>
-        <ContactHOC url={url} dismissModal={this.dismissModal} />
+        <ContactHOC url={url} />
       </div>
     );
   }

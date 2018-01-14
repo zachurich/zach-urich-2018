@@ -12,7 +12,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(svg|png)/,
+        test: /\.(svg|png|jpeg)/,
         loader: "file-loader"
       },
       {

@@ -35,9 +35,10 @@ export default class Landing extends React.Component {
     });
   }
   render() {
+    const { url } = this.props;
     return (
       <div className="pattern-background">
-        <Head />
+        <Head url={url} />
         <Header />
         <Intro />
         <Status content={about} />
@@ -46,7 +47,7 @@ export default class Landing extends React.Component {
           intro={true}
           posts={this.state.posts}
           postAmount={4}
-          layout="two-column"
+          layout="one-column"
           background={true}
         />
 

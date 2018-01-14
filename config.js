@@ -1,8 +1,9 @@
 module.exports = {
   title: "Zach Urich",
+  intro: "Front-end developer & designer building things on the web.",
   endpoints: {
-    blog: "http://blog.zachurich.com/wp-json/custom/v1/posts",
-    contact: "http://blog.zachurich.com/wp-json/custom/v1/contact"
+    blog: "https://blog.zachurich.com/wp-json/custom/v1/posts",
+    contact: "https://blog.zachurich.com/wp-json/custom/v1/contact"
   },
   nav: [
     {
@@ -43,7 +44,10 @@ module.exports = {
   ],
   about: `
     <p>
-    Currently making things at <a href="https://integritystl.com">Integrity Web Consulting</a>. I’m a developer, but I also enjoy other things, such as drawing, playing & collecting classic video games, & listening to podcasts. I’m also a wanabe anime enthusiest, and a lover of malls.
+      I'm passionate about learning and creating things. Being a designer at heart, I do what it takes
+      to create user-friendly applications and sites on the web through writing modern, thoughtful code and following
+      best practices. In my downtime, I'm <a href="/writing">writing</a>, <a href="https://github.com/zachurich">coding</a>, 
+      sharing my <a href="https://dribbble.com/zachurich">designs</a>, and other things that humans do.  
     </p>
   `
 };
