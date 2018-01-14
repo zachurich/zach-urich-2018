@@ -24,6 +24,10 @@ class Contact extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleFormMessage = this.handleFormMessage.bind(this);
+    this.iOS =
+      typeof navigator != "undefined"
+        ? !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)
+        : false;
   }
   componentDidMount() {
     if (localStorage && localStorage.getItem("contact")) {
@@ -34,6 +38,14 @@ class Contact extends React.Component {
         validation,
         inputs
       });
+    }
+
+    // Ugh ios safari bug w/ fixed modals
+    if (this.iOS && this.props.useModal) {
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "100%";
+      document.body.style.width = "100%";
+      document.body.style.position = "fixed";
     }
   }
 
@@ -200,6 +212,13 @@ class Contact extends React.Component {
         </div>
       </section>
     );
+  }
+
+  componentWillUnmount() {
+    // Ugh ios safari bug w/ fixed modals
+    if (this.iOS && this.props.useModal) {
+      document.body.style = "";
+    }
   }
 }
 

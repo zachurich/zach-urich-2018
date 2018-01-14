@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production node ./server.js",
-    "deploy": "now remove zachurich.com --safe now --alias zachurich.com"
+    "deploy": "now remove zachurich.com && now",
+    "alias": "now alias"
   },
   "dependencies": {
     "autoprefixer": "^6.4.1",

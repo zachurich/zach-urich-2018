@@ -84,14 +84,15 @@ class Post extends React.Component {
                       __html: this.state.post.content
                     }}
                   />
-                  {this.state.readNext && (
+                  {this.state.readNext &&
+                  this.state.readNext.title !== this.state.post.title ? (
                     <span>
                       <hr />
                       <div className="post__footer">
                         <ReadNext post={this.state.readNext} />
                       </div>
                     </span>
-                  )}
+                  ) : null}
                 </div>
               </div>
             </div>

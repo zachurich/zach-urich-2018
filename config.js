@@ -46,8 +46,7 @@ module.exports = {
     <p>
       I'm passionate about learning and creating things. Being a designer at heart, I do what it takes
       to create user-friendly applications and sites on the web through writing modern, thoughtful code and following
-      best practices. In my downtime, I'm <a href="/writing">writing</a>, <a href="https://github.com/zachurich">coding</a>, 
-      sharing my <a href="https://dribbble.com/zachurich">designs</a>, and other things that humans do.  
+      best practices. In my downtime, I'm <a href="/writing">writing</a>, <a href="https://github.com/zachurich">coding</a>, <a href="https://dribbble.com/zachurich">designing</a>, and other things that humans do.  
     </p>
   `
 };
