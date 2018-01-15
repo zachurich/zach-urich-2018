@@ -38,7 +38,7 @@ class Writing extends React.Component {
   render() {
     const { url } = this.props;
     return (
-      <div className="blog pattern pattern-background">
+      <div className="blog pattern pattern-background fade">
         <Head url={url} />
         <Header url={url} />
         <Hero />

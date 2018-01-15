@@ -28,9 +28,12 @@ h1 {
 }
 
 h2 {
-  @include fontSize(28px);
+  @include fontSize(24px);
   margin-top: 0;
   font-weight: 800;
+  @media screen and (min-width: $small) {
+    @include fontSize(28px);
+  }
 }
 
 h2,
@@ -46,8 +49,11 @@ h4 {
 }
 
 h3 {
-  @include fontSize(22px);
+  @include fontSize(20px);
   font-weight: 700;
+  @media screen and (min-width: $small) {
+    @include fontSize(22px);
+  }
 }
 
 p,

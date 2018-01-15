@@ -5,7 +5,7 @@
   width: 100%;
   background-color: white;
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.08);
-  z-index: 99999;
+  z-index: 99998;
   .container {
     display: flex;
     align-items: center;
@@ -42,7 +42,7 @@
       }
 
       &:hover {
-        color: $blue;
+        // color: $blue;
         text-decoration: none;
         transform: scale(1);
       }

@@ -6,7 +6,7 @@
   }
   p {
     @include fontSize(18px);
-    color: lighten($black, 50%);
+    color: lighten($black, 20%);
     &:last-of-type {
       display: inline;
     }

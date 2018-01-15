@@ -34,6 +34,10 @@
   transition: all 0.4s cubic-bezier(0.87, 0, 0.1, 1);
 }
 
+.fade {
+  animation: fade 0.4s ease-in-out forwards;
+}
+
 @keyframes growIn {
   0% {
     opacity: 0;
@@ -54,6 +58,15 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 

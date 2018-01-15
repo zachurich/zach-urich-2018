@@ -67,7 +67,7 @@ class Post extends React.Component {
       <div>
         <Head url={url} />
         <Header url={url} />
-        <div className="post wrapper">
+        <div className="post wrapper fade">
           {this.state.post ? (
             <div>
               <header className="post__heading pattern-background pattern-background__small">

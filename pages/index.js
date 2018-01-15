@@ -37,7 +37,7 @@ export default class Landing extends React.Component {
   render() {
     const { url } = this.props;
     return (
-      <div className="pattern-background">
+      <div className="pattern-background fade">
         <Head url={url} />
         <Header />
         <Intro />
