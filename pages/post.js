@@ -1,10 +1,12 @@
 import React from "react";
+import Router from "next/router";
 
 import Head from "../components/Head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactHOC from "../components/ContactHOC";
 import ReadNext from "../components/ReadNext";
+import SocialIcons from "../components/SocialIcons";
 
 import axios from "axios";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
@@ -57,7 +59,9 @@ class Post extends React.Component {
       this.setState({
         post: this.pluckPost(res.data.items), // use our method to set state according to post we need
         readNext:
-          res.data.items[Math.floor(Math.random() * res.data.items.length)]
+          res.data.items[
+            res.data.items.indexOf(this.pluckPost(res.data.items)) + 1
+          ]
       });
     });
   }
@@ -84,15 +88,28 @@ class Post extends React.Component {
                       __html: this.state.post.content
                     }}
                   />
-                  {this.state.readNext &&
-                  this.state.readNext.title !== this.state.post.title ? (
+                  {this.state.readNext ? (
                     <span>
                       <hr />
                       <div className="post__footer">
                         <ReadNext post={this.state.readNext} />
+                        <SocialIcons
+                          title={`"${this.state.post.title}"`}
+                          url={`https://zachurich.com/${Router.asPath}`}
+                        />
                       </div>
                     </span>
-                  ) : null}
+                  ) : (
+                    <span>
+                      <hr />
+                      <div className="post__footer">
+                        <SocialIcons
+                          title={`"${this.state.post.title}"`}
+                          url={`https://zachurich.com/${Router.asPath}`}
+                        />
+                      </div>
+                    </span>
+                  )}
                 </div>
               </div>
             </div>

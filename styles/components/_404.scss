@@ -4,7 +4,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
+  max-width: 795px;
+  margin: auto;
+  text-align: center;
   &__message {
     text-align: center;
   }

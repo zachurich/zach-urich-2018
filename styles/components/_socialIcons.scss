@@ -1,0 +1,18 @@
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .social-icon {
+    margin-right: 10px;
+    &:first-child {
+      margin-left: 5px;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      cursor: pointer;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+}

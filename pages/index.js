@@ -47,7 +47,7 @@ export default class Landing extends React.Component {
           intro={true}
           posts={this.state.posts}
           postAmount={4}
-          layout="one-column"
+          layout="two-column"
           background={true}
         />
 
