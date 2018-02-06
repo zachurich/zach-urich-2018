@@ -5,7 +5,11 @@ const ReadNext = props => {
   return (
     <div className="readNext">
       Read Next:
-      <Link href={`/writing/${props.post.slug}`}>
+      <Link
+        href={{ pathname: "/post", query: { slug: props.post.slug } }}
+        as={`/writing/${props.post.slug}`}
+        prefetch
+      >
         <a>
           <span className="readNext__link">{props.post.title}</span>
         </a>

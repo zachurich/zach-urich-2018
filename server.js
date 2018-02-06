@@ -15,8 +15,11 @@ app.prepare().then(() => {
     return app.render(req, res, `/post`, params);
   });
 
-  //
   server.get("*", (req, res) => {
+    const params = req.query;
+    if (params.contact) {
+      res.redirect("/");
+    }
     return handle(req, res);
   });
 

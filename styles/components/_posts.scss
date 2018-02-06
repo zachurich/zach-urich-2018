@@ -107,7 +107,7 @@
 }
 
 .post {
-  animation: growIn 0.4s cubic-bezier(0.87, 0, 0.1, 1) forwards;
+  animation: fade 0.4s cubic-bezier(0.87, 0, 0.1, 1) forwards;
   &__heading {
     position: relative;
     display: block;

@@ -35,6 +35,9 @@ class Post extends React.Component {
     }
   }
   componentDidUpdate(prevProps, prevState) {
+    if (typeof window !== "undefined") {
+      window.scrollTo(0, 0);
+    }
     if (this.props.location !== prevProps.location) {
       this.onRouteUpdated();
     }
@@ -95,7 +98,7 @@ class Post extends React.Component {
                         <ReadNext post={this.state.readNext} />
                         <SocialIcons
                           title={`"${this.state.post.title}"`}
-                          url={`https://zachurich.com/${Router.asPath}`}
+                          url={`https://zachurich.com${url.asPath}`}
                         />
                       </div>
                     </span>
@@ -105,7 +108,7 @@ class Post extends React.Component {
                       <div className="post__footer">
                         <SocialIcons
                           title={`"${this.state.post.title}"`}
-                          url={`https://zachurich.com/${Router.asPath}`}
+                          url={`https://zachurich.com${url.asPath}`}
                         />
                       </div>
                     </span>
