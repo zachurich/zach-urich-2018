@@ -1,12 +1,7 @@
 .pattern-background {
+  background-image: $pattern;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../static/pattern-mobile.svg");
-  @media screen and (min-width: $small) {
-    background-repeat: repeat;
-    background-size: contain;
-  }
-
   &__small {
     background-size: 300%;
     @media screen and (min-width: $small) {

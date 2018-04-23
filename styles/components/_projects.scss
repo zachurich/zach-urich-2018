@@ -1,0 +1,102 @@
+.projects {
+  padding: 45px 0;
+  background: $darkBlack;
+  @media screen and (min-width: $small) {
+    padding: 60px 0;
+  }
+  &__heading {
+    text-align: center;
+    color: white;
+  }
+  &__list {
+    margin-top: 70px;
+  }
+}
+
+.project {
+  display: flex;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  @media screen and (min-width: $small) {
+    flex-wrap: nowrap;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  @each $color in $colors {
+    $i: index($colors, $color);
+    &:nth-of-type(#{$i}) {
+      h3,
+      a:not(.tech) {
+        color: #{$color};
+      }
+    }
+  }
+  @media screen and (min-width: $small) {
+    &.even {
+      .project__content {
+        order: 1;
+      }
+      .project__image {
+        order: 2;
+      }
+      .project__image {
+        margin-left: 40px;
+      }
+    }
+    &.odd {
+      .project__image {
+        margin-right: 40px;
+      }
+    }
+  }
+  &__image {
+    display: flex;
+    padding: 0 20px;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 230px;
+    min-width: 230px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    margin-bottom: 40px;
+    @media screen and (min-width: $small) {
+      margin-bottom: 0;
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__content {
+    h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    p {
+      color: white;
+    }
+  }
+
+  &__stack {
+    .tech {
+      display: inline-block;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin: 5px 10px 5px 0;
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  &__description {
+    a {
+      color: $bodyColor !important;
+      text-decoration: underline;
+      &:hover {
+        color: $red !important;
+      }
+    }
+  }
+}

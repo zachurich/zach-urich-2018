@@ -43,24 +43,31 @@
     h1 {
       white-space: nowrap;
       cursor: default;
-      &:hover {
-        color: white;
-      }
-      @for $i from 1 through length($colors) {
-        span:nth-child(#{$i}):hover {
-          color: nth($colors, $i);
-        }
-      }
+      // &:hover {
+      //   color: white;
+      // }
+      // @for $i from 1 through length($colors) {
+      //   span:nth-child(#{$i}):hover {
+      //     color: nth($colors, $i);
+      //   }
+      // }
     }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   &__blob {
     width: 380px;
     z-index: 1;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
     .cls-1 {
       fill: darken($bodyColor, 5%);
       // fill: lighten($yellow, 20%);

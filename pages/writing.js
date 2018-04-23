@@ -13,7 +13,7 @@ import axios from "axios";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import { endpoints, links, nav } from "../config";
-import { dummyData, scrollToTop } from "../helpers";
+import { scrollToTop } from "../helpers";
 
 class Writing extends React.Component {
   static async getInitialProps({ req }) {

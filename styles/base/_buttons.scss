@@ -15,16 +15,15 @@ a.button {
   color: $red;
   padding: 4px 35px;
   box-shadow: $inputShadow;
-  transition: 0.2s cubic-bezier(0.63, 0.01, 0, 0.97);
+  transition: 0.1s ease-in-out;
   &:hover,
   &:focus {
+    transform: scale(1.05);
     text-decoration: none;
     outline: none;
     color: white;
     background-color: $red !important;
-    box-shadow: 0 5px 15px -5px $red;
   }
-
   &:active {
     transform: scale(0.95);
   }

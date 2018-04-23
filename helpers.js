@@ -93,3 +93,14 @@ export const formatTitle = path => {
     return "";
   }
 };
+
+export const parallax = selectors => {
+  selectors.forEach((selector, i) => {
+    let el = document.querySelector(selector);
+    window.addEventListener("scroll", () => {
+      el.style.animation = "none";
+      el.style.transform = `translateY(${window.scrollY / 12 + i * 2}px)`;
+      el.style.opacity = `${1 - window.scrollY / 300}`;
+    });
+  });
+};

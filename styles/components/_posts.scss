@@ -15,7 +15,7 @@
   &__heading {
     color: white;
     text-align: center;
-    margin: 0 auto 30px;
+    margin: 0 auto 60px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -58,7 +58,7 @@
   }
   &.two-column {
     @media screen and (min-width: $small) {
-      flex-basis: calc( (100% + 30px)/2 - 30px);
+      flex-basis: calc((100% + 30px) / 2 - 30px);
     }
   }
   &__heading {
@@ -107,6 +107,7 @@
 }
 
 .post {
+  min-height: 100vh;
   animation: fade 0.4s cubic-bezier(0.87, 0, 0.1, 1) forwards;
   &__heading {
     position: relative;
@@ -181,6 +182,9 @@
       color: $blogTextColor;
       font-weight: 500;
     }
+  }
+  &__contain {
+    transition: all 0.3s ease-in-out;
   }
   &__content {
     padding: 40px 0 2.5rem;

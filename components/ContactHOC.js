@@ -12,7 +12,15 @@ export default class ContactHOC extends React.Component {
   }
   dismissModal() {
     const { url } = this.props;
-    Router.push(`${url.pathname}`);
+    if (url.query.slug) {
+      Router.push(`${url.pathname}?slug=${url.query.slug}`, url.asPath, {
+        shallow: true
+      });
+    } else {
+      Router.push(url.pathname, url.asPath, {
+        shallow: true
+      });
+    }
   }
   render() {
     return (

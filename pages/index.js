@@ -6,12 +6,15 @@ import Head from "../components/Head";
 import Header from "../components/Header";
 import Intro from "../components/Intro";
 import Status from "../components/Status";
+import Projects from "../components/Projects";
 import Posts from "../components/Posts";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 import { endpoints, links, nav, about } from "../config";
 import { dummyData } from "../helpers";
+
+import projects from "../projects.json";
 
 export default class Landing extends React.Component {
   static async getInitialProps({ req }) {
@@ -37,12 +40,14 @@ export default class Landing extends React.Component {
   render() {
     const { url } = this.props;
     return (
-      <div className="pattern-background fade">
+      <div className="fade">
         <Head url={url} />
         <Header />
-        <Intro />
-        <Status content={about} />
-
+        <div className="pattern-background">
+          <Intro />
+          <Status content={about} />
+        </div>
+        <Projects projects={projects} />
         <Posts
           intro={true}
           posts={this.state.posts}
@@ -51,8 +56,10 @@ export default class Landing extends React.Component {
           background={true}
         />
 
-        <Contact />
-        <Footer nav={nav} links={links} />
+        <div className="pattern-background">
+          <Contact />
+          <Footer nav={nav} links={links} />
+        </div>
       </div>
     );
   }

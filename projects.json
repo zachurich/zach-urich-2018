@@ -1,0 +1,40 @@
+[
+  {
+    "title": "Webnotes",
+    "img": { "src": "static/projects/webnotes-logo.svg", "alt": "" },
+    "link": "http://webnotes.co",
+    "tech": [
+      {
+        "name": "React",
+        "link": "https://reactjs.org"
+      },
+      {
+        "name": "React Router",
+        "link": "https://github.com/ReactTraining/react-router"
+      },
+      {
+        "name": "Firebase",
+        "link": "https://firebase.google.com/"
+      }
+    ],
+    "description":
+      "Webnotes lets you write and store notes in the cloud. Using user authentication, notes can be written and accessed on any device. Notable features include creating, deleting, editing, and writing notes in markdown."
+  },
+  {
+    "title": "Explore St. Louis",
+    "img": { "src": "static/projects/explore-logo.svg", "alt": "" },
+    "link": "https://explorestlouis.com",
+    "tech": [
+      {
+        "name": "React",
+        "link": "https://reactjs.org"
+      },
+      {
+        "name": "Wordpress REST API",
+        "link": "https://reactjs.org"
+      }
+    ],
+    "description":
+      "<a href='https://explorestlouis.com'>Explorestlouis.com</a> is a marketing site dedicated to providing locals and tourists information and resources for the city of St. Louis. I led front-end development on their <a href='https://explorestlouis.com/things-to-do/'>Parter Listings</a> that allow users to find destinations that are within their interest and proximity."
+  }
+]

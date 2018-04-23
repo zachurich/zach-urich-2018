@@ -19,36 +19,31 @@ class Post extends React.Component {
     const posts = await axios.get(endpoints.blog);
     return { posts: posts.data };
   }
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
+    this.state = { post: {}, readNext: {} };
+  }
+  componentDidMount() {
     // If we have the post, go ahead and init state with data
     const post = this.pluckPost(this.props.posts.items)
       ? this.pluckPost(this.props.posts.items)
       : "";
 
-    this.state = { post, readNext: {} };
+    this.setState({ post, readNext: {} });
   }
-  componentDidMount() {
-    if (typeof window !== "undefined") {
-      window.scrollTo(0, 0);
-    }
-  }
-  componentDidUpdate(prevProps, prevState) {
-    if (typeof window !== "undefined") {
-      window.scrollTo(0, 0);
-    }
-    if (this.props.location !== prevProps.location) {
-      this.onRouteUpdated();
+  componentWillReceiveProps(nextProps) {
+    const { slug } = this.props.url.query;
+
+    if (slug == nextProps.url.query.slug) {
+      this.fetchPosts();
+    } else {
+      // fade out old content, fade in new
+      this.fetchPosts(true);
     }
   }
   componentWillMount() {
     this.fetchPosts();
-  }
-  onRouteUpdated() {
-    this.fetchPosts().then(() =>
-      document.querySelector(".post__heading").scrollIntoView()
-    );
   }
   // Grab a post for the ReadNext
   // Get the post by slug nabbed from route param
@@ -57,7 +52,19 @@ class Post extends React.Component {
     return posts.filter(post => post.slug === url.query.slug)[0];
   }
   // Get all the posts
-  fetchPosts() {
+  fetchPosts(animate) {
+    const postBody =
+      typeof document != "undefined"
+        ? document.querySelector(".post__contain")
+        : null;
+
+    if (animate && postBody && typeof document != "undefined") {
+      postBody.style.opacity = 0;
+      setTimeout(() => {
+        postBody.style.display = "none";
+      }, 300);
+    }
+
     return axios.get(endpoints.blog).then(res => {
       this.setState({
         post: this.pluckPost(res.data.items), // use our method to set state according to post we need
@@ -66,6 +73,12 @@ class Post extends React.Component {
             res.data.items.indexOf(this.pluckPost(res.data.items)) + 1
           ]
       });
+      if (animate && postBody && typeof document != "undefined") {
+        postBody.style.display = "block";
+        setTimeout(() => {
+          postBody.style.opacity = 1;
+        }, 300);
+      }
     });
   }
   render() {
@@ -76,7 +89,7 @@ class Post extends React.Component {
         <Header url={url} />
         <div className="post wrapper fade">
           {this.state.post ? (
-            <div>
+            <div className="post__contain">
               <header className="post__heading pattern-background pattern-background__small">
                 <div className="container">
                   <h1 className="post__title">{this.state.post.title}</h1>
@@ -117,8 +130,8 @@ class Post extends React.Component {
               </div>
             </div>
           ) : null}
-          <Footer nav={nav} links={links} url={url} />
         </div>
+        <Footer nav={nav} links={links} url={url} />
         <ContactHOC url={url} />
       </div>
     );

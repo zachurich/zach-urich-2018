@@ -1,0 +1,30 @@
+<svg width="162" height="162" viewBox="0 0 162 162" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Group</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-124 -59)">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(124 59)" fill="url(#paint0_linear)"/>
+</g>
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(155.177 89.7027)" fill="#4C7AE0"/>
+</g>
+<g id="Vector">
+<use xlink:href="#path2_fill" transform="translate(211.725 89.7027)" fill="#4C7AE0"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(144.095 144.095 -144.095 144.095 81 -63.0947)">
+<stop offset="0" stop-color="#F2F2F2"/>
+<stop offset="0.3463" stop-color="#EBEBEB"/>
+<stop offset="0.8409" stop-color="#D9D9D9"/>
+<stop offset="1" stop-color="#D1D1D1"/>
+</linearGradient>
+<path id="path0_fill" d="M 131.434 162L 30.566 162C 13.7547 162 0 148.245 0 131.434L 0 30.566C 0 13.7547 13.7547 0 30.566 0L 131.434 0C 148.245 0 162 13.7547 162 30.566L 162 131.434C 162 148.245 148.245 162 131.434 162Z"/>
+<path id="path1_fill" d="M 32.4 34.7086L 23.0774 34.7086L 39.8887 17.7444C 44.1679 13.4652 44.0151 6.28218 39.1245 2.3086C 34.9981 -1.2065 28.7321 -0.595178 24.7585 3.37841L 4.12642 24.1633C 1.5283 26.7614 -5.83001e-07 30.2765 -5.83001e-07 33.9444L -5.83001e-07 43.4199L -5.83001e-07 64.2048L -5.83001e-07 85.6011C -5.83001e-07 90.6444 4.12641 94.9237 9.32264 94.9237L 32.5528 94.9237C 37.5962 94.9237 41.8755 90.7973 41.8755 85.6011L 41.8755 43.8784C 41.7226 38.835 37.5962 34.7086 32.4 34.7086Z"/>
+<path id="path2_fill" d="M 32.4 34.7086L 23.0774 34.7086L 39.8887 17.7444C 44.1679 13.4652 44.0151 6.28218 39.1245 2.3086C 34.9981 -1.2065 28.7321 -0.595178 24.7585 3.37841L 4.12641 24.1633C 1.5283 26.7614 2.332e-06 30.2765 2.332e-06 33.9444L 2.332e-06 43.4199L 2.332e-06 64.2048L 2.332e-06 85.6011C 2.332e-06 90.6444 4.12641 94.9237 9.32264 94.9237L 32.5528 94.9237C 37.5962 94.9237 41.8755 90.7973 41.8755 85.6011L 41.8755 43.8784C 41.7226 38.835 37.5962 34.7086 32.4 34.7086Z"/>
+</defs>
+</svg>

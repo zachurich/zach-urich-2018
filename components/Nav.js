@@ -57,7 +57,18 @@ class Nav extends React.Component {
   showModal(e) {
     e.preventDefault();
     const { url } = this.props;
-    Router.push(`${url.pathname}?contact=true`);
+    // Router.push(`${url.pathname}?contact=true`, `${url.asPath}?contact=true`);
+    if (url.query.slug) {
+      Router.push(
+        `${url.pathname}?slug=${url.query.slug}&contact=true`,
+        url.asPath,
+        { shallow: true }
+      );
+    } else {
+      Router.push(`${url.pathname}?contact=true`, url.asPath, {
+        shallow: true
+      });
+    }
   }
   render() {
     let icon = false;

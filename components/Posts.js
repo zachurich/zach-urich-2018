@@ -5,10 +5,8 @@ import Icon from "./Icon";
 import Pencil from "../static/icon_pencil.svg";
 
 const Posts = props => {
-  const intro = props.intro;
-  const background = props.background;
-  const layout = props.layout;
-  const postAmount = props.postAmount;
+  const { intro, background, layout, postAmount } = props;
+
   const posts = props.posts.slice(0, postAmount);
   return (
     <section className={`writing wrapper ${background ? "background" : ""}`}>

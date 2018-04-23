@@ -2,8 +2,8 @@ module.exports = {
   title: "Zach Urich",
   intro: "Front-end developer & designer building things on the web.",
   endpoints: {
-    blog: "https://blog.zachurich.com/wp-json/custom/v1/posts",
-    contact: "https://blog.zachurich.com/wp-json/custom/v1/contact"
+    blog: "http://wp.zachurichblog.site/wp-json/custom/v1/posts",
+    contact: "http://wp.zachurichblog.site/wp-json/custom/v1/contact"
   },
   nav: [
     {
