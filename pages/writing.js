@@ -49,11 +49,7 @@ class Writing extends React.Component {
             background={false}
           />
         ) : null}
-        <EndOfList
-        // page="/"
-        // pageTitle="Drawings"
-        // text="Maybe you'd like to check out some of my "
-        />
+        <EndOfList />
         <ContactHOC url={url} />
         <Footer nav={nav} links={links} url={url} />
       </div>

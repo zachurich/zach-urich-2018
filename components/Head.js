@@ -5,8 +5,6 @@ import stylesheet from "../styles/style.scss";
 
 import { formatTitle } from "../helpers";
 
-("UA-113781955-1");
-
 export default props => (
   <div>
     <Head>
@@ -34,6 +32,10 @@ export default props => (
       <meta
         name="viewport"
         content="width=device-width,initial-scale=1,maximum-scale=1"
+      />
+      <meta
+        name="description"
+        content="Zach Urich is a software engineer, designer, and wanabe cartoon artist."
       />
       <meta
         name="viewport"

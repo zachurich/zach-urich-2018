@@ -22,9 +22,8 @@ class Hero extends React.Component {
           </div>
           <div className="hero__intro">
             <h2>
-              I write about things related to Web Development, design, and
-              random philisophical thoughts. I hope you can find some value in
-              the words I have to say.
+              I write about things related to Software Development, design, and
+              random philisophical thoughts.
             </h2>
           </div>
         </div>

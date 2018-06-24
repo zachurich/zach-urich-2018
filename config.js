@@ -2,8 +2,8 @@ module.exports = {
   title: "Zach Urich",
   intro: "Front-end developer & designer building things on the web.",
   endpoints: {
-    blog: "http://wp.zachurichblog.site/wp-json/custom/v1/posts",
-    contact: "http://wp.zachurichblog.site/wp-json/custom/v1/contact"
+    blog: "https://wp.zachurichblog.site/wp-json/custom/v1/posts",
+    contact: "https://wp.zachurichblog.site/wp-json/custom/v1/contact"
   },
   nav: [
     {
@@ -44,9 +44,17 @@ module.exports = {
   ],
   about: `
     <p>
-      I'm passionate about learning and creating things. Being a designer at heart, I do what it takes
-      to create user-friendly applications and sites on the web through writing modern, thoughtful code and following
-      best practices. In my downtime, I'm <a href="/writing">writing</a>, <a href="https://github.com/zachurich">coding</a>, <a href="https://dribbble.com/zachurich">designing</a>, and other things that humans do.  
+      I'm passionate about learning and creating things. Starting out as a designer, 
+      I taught myself how to code out of a desire to build my ideas. I fell in love 
+      with writing code and currently work as a UI Engineer at Panera Bread. Sometimes, 
+      I 
+      <a href="/writing">
+        write</a>, 
+      <a href="https://www.instagram.com/zacurich/" target="_blank">
+        draw</a>, and take 
+      <a href="https://www.instagram.com/zachurich/" target="_blank">
+        cool pictures</a>.
+
     </p>
   `
 };
