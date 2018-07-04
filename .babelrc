@@ -10,14 +10,6 @@
             }
           ]
         }
-      },
-      "module-resolver",
-      {
-        "root": ["."],
-        "alias": {
-          "styles": "./styles"
-        },
-        "cwd": "babelrc"
       }
     ],
     [

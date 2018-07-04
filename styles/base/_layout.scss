@@ -10,6 +10,11 @@
   }
 }
 
+.dark-theme .pattern-background {
+  background-image: $pattern-dark;
+  background-color: $black;
+}
+
 .container {
   position: relative;
   display: block;
@@ -19,7 +24,4 @@
   @media screen and (min-width: $small) {
     padding: 0 30px;
   }
-}
-
-section {
 }

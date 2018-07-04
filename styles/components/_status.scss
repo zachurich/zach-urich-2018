@@ -78,3 +78,16 @@
     }
   }
 }
+
+.dark-theme .status {
+  &__box {
+    box-shadow: $darkThemeShadow;
+  }
+  &__text {
+    background-color: $darkBlack;
+    border-radius: 10px 0 0 10px;
+    p {
+      color: $bodyColor;
+    }
+  }
+}

@@ -10,7 +10,6 @@ import Footer from "../components/Footer";
 import ContactHOC from "../components/ContactHOC";
 
 import axios from "axios";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import { endpoints, links, nav } from "../config";
 import { scrollToTop } from "../helpers";
@@ -38,7 +37,7 @@ class Writing extends React.Component {
   render() {
     const { url } = this.props;
     return (
-      <div className="blog pattern pattern-background fade">
+      <div className="blog pattern fade">
         <Head url={url} />
         <Header url={url} />
         <Hero />

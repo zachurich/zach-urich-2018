@@ -12,7 +12,7 @@ class Hero extends React.Component {
   }
   render() {
     return (
-      <section className="hero wrapper">
+      <section className="hero wrapper pattern-background">
         <div id="text-wrapper" className="container">
           {/* <div className="hero__illustration">
           <Writing />

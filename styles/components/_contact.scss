@@ -50,7 +50,7 @@
       margin-bottom: 30px;
       flex-basis: 100%;
       @media screen and (min-width: $small) {
-        flex-basis: calc( (100% + 30px)/2 - 30px);
+        flex-basis: calc((100% + 30px) / 2 - 30px);
       }
     }
     input[type="email"] {
@@ -155,6 +155,44 @@
       input {
         margin: 0 0 0 20px;
       }
+    }
+  }
+}
+
+.dark-theme .contact {
+  &__heading,
+  &__form form.disabled input[type="submit"] {
+    color: $bodyColor;
+  }
+
+  &__form form.disabled {
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      color: lighten($black, 8%);
+      background-color: $darkBlack;
+    }
+  }
+
+  &__form form {
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      &:focus {
+        color: $yellow;
+        background-color: $darkBlack;
+        &::placeholder {
+          color: transparent;
+        }
+      }
+    }
+  }
+
+  &.modal .container {
+    background-color: $black;
+    .modal__close {
+      color: $bodyColor;
+      font-weight: bold;
     }
   }
 }

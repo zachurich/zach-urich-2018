@@ -74,3 +74,15 @@
     }
   }
 }
+
+.dark-theme {
+  .intro {
+    h1,
+    h2 {
+      color: $bodyColor;
+    }
+    &__blob .cls-1 {
+      fill: darken($blue, 5%);
+    }
+  }
+}

@@ -29,3 +29,11 @@
     }
   }
 }
+
+.dark-theme .hero {
+  background-color: $black;
+  h1,
+  h2 {
+    color: $bodyColor;
+  }
+}

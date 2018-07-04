@@ -37,10 +37,6 @@
       @include fontSize(17px);
       white-space: nowrap;
       color: $black;
-      @media screen and (min-width: $mobile) {
-        // @include fontSize(16px);
-      }
-
       &:hover {
         // color: $blue;
         text-decoration: none;
@@ -147,5 +143,19 @@
   transition: transform 0.2s ease-in-out, opacity 0.1s ease-in-out;
   @media screen and (max-width: $mobile) {
     display: none;
+  }
+}
+
+.dark-theme {
+  .nav {
+    background-color: $darkBlack;
+    box-shadow: 0px 14px 79px -11px rgba(0, 0, 0, 0.5);
+    .site-brand a {
+      color: $bodyColor;
+    }
+  }
+
+  .hoverPill {
+    box-shadow: 0 5px 20px -1px rgba($blue, 0.8);
   }
 }

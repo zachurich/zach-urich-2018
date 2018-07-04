@@ -1,5 +1,5 @@
 import React from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import { CSSTransitionGroup } from "react-transition-group";
 import Router from "next/router";
 
 import Contact from "./Contact";
@@ -24,7 +24,7 @@ export default class ContactHOC extends React.Component {
   }
   render() {
     return (
-      <ReactCSSTransitionGroup
+      <CSSTransitionGroup
         transitionName="growIn"
         transitionEnterTimeout={400}
         transitionLeaveTimeout={400}
@@ -36,7 +36,7 @@ export default class ContactHOC extends React.Component {
             dismissModal={this.dismissModal}
           />
         )}
-      </ReactCSSTransitionGroup>
+      </CSSTransitionGroup>
     );
   }
 }

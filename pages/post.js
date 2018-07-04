@@ -9,7 +9,6 @@ import ReadNext from "../components/ReadNext";
 import SocialIcons from "../components/SocialIcons";
 
 import axios from "axios";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import { endpoints, links, nav } from "../config";
 import Link from "next/link";
