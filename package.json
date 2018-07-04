@@ -1,7 +1,7 @@
 {
   "name": "zachurich.com",
   "version": "1.0.0",
-  "description": "zach urich's website & blog",
+  "description": "zach urich's website",
   "main": "server.js",
   "scripts": {
     "dev": "next dev",
