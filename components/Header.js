@@ -7,23 +7,21 @@ import Nav from "./Nav";
 
 class Header extends React.Component {
   state = {
-    theme: 'Dark'
+    theme: 'dark'
   }
   componentDidMount() {
     let theme = JSON.parse(localStorage.getItem("theme"))
     if (localStorage && localStorage.getItem("theme")) {
       this.setState({ theme })
-      if(theme === 'Dark') {
-        document.querySelector('body').classList.add('dark-theme');
-      } else {
-        document.querySelector('body').classList.remove('dark-theme');
-      }
+    }
+    if(typeof document != 'undefined') {
+      document.querySelector('body').classList.add(`${this.state.theme}-theme`);
     }
     document.addEventListener("touchstart", function(){}, true);
   }
   switchTheme = () => {
+    let theme = this.state.theme === 'dark' ? 'light' : 'dark'
     document.querySelector('body').classList.toggle('dark-theme');
-    let theme = this.state.theme === 'Dark' ? 'Light' : 'Dark'
     this.setState({ theme });
     if (localStorage) {
       localStorage.setItem("theme", JSON.stringify(theme));
@@ -46,7 +44,7 @@ class Header extends React.Component {
           className="theme-toggle" 
           onClick={() => this.switchTheme()}
         >
-          { this.state.theme === 'Dark' ? 'Light' : 'Dark' } Theme
+          { this.state.theme === 'dark' ? 'light' : 'dark' } Theme
         </div>
       </header>
     );

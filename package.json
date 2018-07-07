@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "next dev",
+    "dev:server": "node server.js",
     "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production node ./server.js",
     "deploy": "now rm zachurich.com -y && now",
@@ -28,6 +29,7 @@
     "glob": "^7.1.2",
     "next": "^6.1.1",
     "node-sass": "^4.9.0",
+    "nodemailer": "^4.6.7",
     "normalize.css": "^7.0.0",
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^2.1.5",

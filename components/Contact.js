@@ -68,7 +68,7 @@ class Contact extends React.Component {
           email: xssFilters.inHTMLData(contact.email),
           inquiry: xssFilters.inHTMLData(contact.inquiry)
         })
-        .then(response => this.handleFormMessage("Submitted!"))
+        .then(response => this.handleFormMessage(response.data))
         .catch(error => this.handleFormMessage("Something went wrong :("));
     } else {
       this.setState(previousState => {
@@ -130,7 +130,7 @@ class Contact extends React.Component {
       "Almost, but not happening. 😒",
       "Fill those out^^^ 😕"
     ];
-    let state = this.state.validation.msg === "Submitted!" ? true : false;
+    let state = this.state.validation.msg !== "Submit" ? true : false;
     let errMsg = () => errMsgs[Math.floor(Math.random() * errMsgs.length)];
     return (
       <section

@@ -3,7 +3,7 @@ module.exports = {
   intro: "Front-end developer & designer building things on the web.",
   endpoints: {
     blog: "https://wp.zachurichblog.site/wp-json/custom/v1/posts",
-    contact: "https://wp.zachurichblog.site/wp-json/custom/v1/contact"
+    contact: "/api/contact"
   },
   nav: [
     {
