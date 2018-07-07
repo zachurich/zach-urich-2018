@@ -13,6 +13,9 @@ body {
   background-color: $bodyColor;
   font-family: $openSans;
   color: $textColor;
+  &.dark-theme {
+    background-color: $darkBlack;
+  } 
 }
 
 h1 {

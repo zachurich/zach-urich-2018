@@ -17,6 +17,7 @@ $darkBlack: #282828;
 $textColor: $black;
 $blogTextColor: #404040;
 $bodyColor: #f6f7fb;
+$darkGradient: linear-gradient(360deg, #535353 0%, #535353 46%, $black 100%);
 
 $colors: $blue, $red, $orange, $green, $blue, $red, $orange, $green, $blue, $red,
   $orange, $green;
@@ -29,6 +30,7 @@ $openSans: "Open Sans", sans-serif;
 // Shadow
 $trendyShadow: 0px 50px 106px -28px rgba(56, 53, 77, 0.2);
 $inputShadow: 0px 23px 62px rgba(56, 53, 77, 0.1);
+$buttonShadow: 0px 15px 52px rgba(56, 53, 77, 0.2);
 $coloredShadow: 0 5px 15px -5px;
 $coloredBGShadow: 0px 12px 21px 0px rgba(56, 53, 77, 0.4);
 $diffusedShadow: 0 8px 20px -8px rgba(0, 0, 0, 0.4);

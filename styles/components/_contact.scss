@@ -190,6 +190,7 @@
 
   &.modal .container {
     background-color: $black;
+    box-shadow: $darkThemeShadow;
     .modal__close {
       color: $bodyColor;
       font-weight: bold;

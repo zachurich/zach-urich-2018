@@ -1,11 +1,6 @@
 .hero {
   padding: 150px 0 30px;
-  // &__illustration {
-  //   max-width: 300px;
-  //   margin: 0 0 1.5rem;
-  // }
   background-color: white;
-  overflow: hidden;
   box-shadow: 0px 1px 0px 0px rgba(56, 53, 77, 0.07);
   &__heading {
     opacity: 0;
@@ -14,6 +9,18 @@
       // max-width: 85%;
       @include fontSize(38px);
     }
+  }
+  &__date {
+    position: absolute;
+    bottom: -50px;
+    background: $lightYellow;
+    padding: 2px 20px;
+    border-radius: 20px;
+    opacity: 0;
+    animation: growIn 1s cubic-bezier(0.17, 0, 0, 1) forwards;
+    animation-delay: 0.5s;
+    @include fontSize(14px);
+    box-shadow: 0px 6px 14.72px 1.28px rgba(255, 207, 42, 0.4);
   }
   &__intro {
     opacity: 0;
@@ -31,9 +38,13 @@
 }
 
 .dark-theme .hero {
-  background-color: $black;
+  background-color: $darkBlack;
+  border-bottom: 1px solid lighten($black, 8%);
   h1,
   h2 {
     color: $bodyColor;
+  }
+  &__date {
+    box-shadow: 0px 6px 14.72px 1.28px rgba(255, 207, 42, 0.2);
   }
 }

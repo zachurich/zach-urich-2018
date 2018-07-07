@@ -14,18 +14,19 @@ class Hero extends React.Component {
     return (
       <section className="hero wrapper pattern-background">
         <div id="text-wrapper" className="container">
-          {/* <div className="hero__illustration">
-          <Writing />
-        </div> */}
           <div className="hero__heading heading">
-            <h1 className="uppercase">Sometimes I Write Things...</h1>
+            <h1 className="uppercase">{this.props.title}.</h1>
+            {this.props.date &&
+              <span className="hero__date">{this.props.date}</span>
+            }
           </div>
-          <div className="hero__intro">
-            <h2>
-              I write about things related to Software Development, design, and
-              random philisophical thoughts.
-            </h2>
-          </div>
+          {this.props.description &&
+            <div className="hero__intro">
+              <h2>
+                {this.props.description}
+              </h2>
+            </div>
+          }
         </div>
       </section>
     );

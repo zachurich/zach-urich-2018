@@ -18,3 +18,10 @@
     text-decoration: underline;
   }
 }
+
+.dark-theme .readNext {
+  background-color: $darkBlack;
+  &__link {
+    color: $bodyColor;
+  }
+}

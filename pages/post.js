@@ -2,6 +2,7 @@ import React from "react";
 import Router from "next/router";
 
 import Head from "../components/Head";
+import Hero from "../components/Hero";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactHOC from "../components/ContactHOC";
@@ -89,12 +90,10 @@ class Post extends React.Component {
         <div className="post wrapper fade">
           {this.state.post ? (
             <div className="post__contain">
-              <header className="post__heading pattern-background pattern-background__small">
-                <div className="container">
-                  <h1 className="post__title">{this.state.post.title}</h1>
-                  <span className="post__date">{this.state.post.date}</span>
-                </div>
-              </header>
+              <Hero
+                title={this.state.post.title}
+                date={this.state.post.date}
+              />
               <div className="post__container">
                 <div className="container">
                   <div

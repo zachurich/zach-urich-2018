@@ -5,7 +5,6 @@ import Head from "../components/Head";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Posts from "../components/Posts";
-import EndOfList from "../components/EndOfList";
 import Footer from "../components/Footer";
 import ContactHOC from "../components/ContactHOC";
 
@@ -40,7 +39,10 @@ class Writing extends React.Component {
       <div className="blog pattern fade">
         <Head url={url} />
         <Header url={url} />
-        <Hero />
+        <Hero
+          title="Sometimes I Write Things.."
+          description="I write about things related to Software Development, design, and random philisophical thoughts."
+        />
         {this.state.posts.length > 0 ? (
           <Posts
             posts={this.state.posts}
@@ -48,7 +50,6 @@ class Writing extends React.Component {
             background={false}
           />
         ) : null}
-        <EndOfList />
         <ContactHOC url={url} />
         <Footer nav={nav} links={links} url={url} />
       </div>
