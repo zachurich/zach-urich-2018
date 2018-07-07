@@ -10,13 +10,24 @@ class Header extends React.Component {
     theme: 'Dark'
   }
   componentDidMount() {
+    let theme = JSON.parse(localStorage.getItem("theme"))
+    if (localStorage && localStorage.getItem("theme")) {
+      this.setState({ theme })
+      if(theme === 'Dark') {
+        document.querySelector('body').classList.add('dark-theme');
+      } else {
+        document.querySelector('body').classList.remove('dark-theme');
+      }
+    }
     document.addEventListener("touchstart", function(){}, true);
   }
   switchTheme = () => {
     document.querySelector('body').classList.toggle('dark-theme');
-    this.setState({
-      theme: this.state.theme === 'Dark' ? 'Light' : 'Dark'
-    });
+    let theme = this.state.theme === 'Dark' ? 'Light' : 'Dark'
+    this.setState({ theme });
+    if (localStorage) {
+      localStorage.setItem("theme", JSON.stringify(theme));
+    }
   }
   render() {
     return (
@@ -35,7 +46,7 @@ class Header extends React.Component {
           className="theme-toggle" 
           onClick={() => this.switchTheme()}
         >
-          { this.state.theme } Theme
+          { this.state.theme === 'Dark' ? 'Light' : 'Dark' } Theme
         </div>
       </header>
     );
