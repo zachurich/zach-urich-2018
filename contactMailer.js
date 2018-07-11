@@ -1,19 +1,15 @@
 const nodemailer = require("nodemailer");
+const sgTransport = require("nodemailer-sendgrid-transport");
 const user = "zac.urich@gmail.com";
 
-const transporter = nodemailer.createTransport({
-  service: "Gmail",
-  auth: {
-    type: "OAuth2",
-    user,
-    refreshToken: "1/93dwT4M3j-MYKL6KZLHOinN2PqbKhwDmhBnDpapz_9U",
-    accessToken:
-      "ya29.GlvyBRE-4rmRH86QDDPXiiHdlAmlJrckZzjXrJ0qYpti0egvaT_6weDJQcF1l_VpKh4ijc7RDkv-J8fNHmI9Kohhzmy5MSOz7hkZO6kTm-9TI_zY44RaAM4nV1pi",
-    clientId:
-      "450472664282-u1ep8mvfn8n01n5kvkgvak84uvj5iqc5.apps.googleusercontent.com",
-    clientSecret: "4ws8ZMVsFWLsJMO0YAdz3CjW"
-  }
-});
+const transporter = nodemailer.createTransport(
+  sgTransport({
+    auth: {
+      api_key:
+        "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"
+    }
+  })
+);
 
 const send = ({ email, name, text }) => {
   const from = name && email ? `${name} <${email}>` : `${name || email}`;

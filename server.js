@@ -40,7 +40,7 @@ app.prepare().then(() => {
       })
       .catch(err => {
         console.log(err);
-        res.send(err);
+        res.send("Something went wrong...");
       });
   });
 
