@@ -5,8 +5,7 @@ const user = "zac.urich@gmail.com";
 const transporter = nodemailer.createTransport(
   sgTransport({
     auth: {
-      api_key:
-        "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"
+      api_key: process.env.EMAIL_API_KEY
     }
   })
 );
