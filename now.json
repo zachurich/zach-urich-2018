@@ -1,3 +1,6 @@
 {
-    "alias": "zachurich.com"
+  "alias": "zachurich.com",
+  "env": {
+    "EMAIL_API_KEY": "@email_api_key"
+  }
 }
