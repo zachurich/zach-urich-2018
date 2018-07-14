@@ -188,12 +188,14 @@
     }
   }
 
-  &.modal .container {
-    background-color: $black;
-    box-shadow: $darkThemeShadow;
-    .modal__close {
-      color: $bodyColor;
-      font-weight: bold;
+  &.modal {
+    animation: fadeInDarkTheme 0.2s ease-in-out forwards;
+    .container {
+      background-color: $darkBlack;
+      .modal__close {
+        color: $bodyColor;
+        font-weight: bold;
+      }
     }
   }
 }

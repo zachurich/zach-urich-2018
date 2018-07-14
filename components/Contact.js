@@ -1,9 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import axios from "axios";
-import xssFilters from "xss-filters";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import axios from 'axios';
+import xssFilters from 'xss-filters';
 
-import { endpoints } from "../config";
+import { endpoints } from '../config';
 
 class Contact extends React.Component {
   constructor(props) {
@@ -11,13 +11,13 @@ class Contact extends React.Component {
     let timer;
     this.state = {
       validation: {
-        msg: "Submit",
-        error: ""
+        msg: 'Submit',
+        error: ''
       },
       inputs: {
-        name: "",
-        email: "",
-        inquiry: ""
+        name: '',
+        email: '',
+        inquiry: ''
       },
       useModal: this.props.useModal || null
     };
@@ -25,14 +25,14 @@ class Contact extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleFormMessage = this.handleFormMessage.bind(this);
     this.iOS =
-      typeof navigator != "undefined"
+      typeof navigator != 'undefined'
         ? !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform)
         : false;
   }
   componentDidMount() {
-    if (localStorage && localStorage.getItem("contact")) {
+    if (localStorage && localStorage.getItem('contact')) {
       const { validation, inputs } = JSON.parse(
-        localStorage.getItem("contact")
+        localStorage.getItem('contact')
       );
       this.setState({
         validation,
@@ -42,10 +42,10 @@ class Contact extends React.Component {
 
     // Ugh ios safari bug w/ fixed modals
     if (this.iOS && this.props.useModal) {
-      document.body.style.overflow = "hidden";
-      document.body.style.height = "100%";
-      document.body.style.width = "100%";
-      document.body.style.position = "fixed";
+      document.body.style.overflow = 'hidden';
+      document.body.style.height = '100%';
+      document.body.style.width = '100%';
+      document.body.style.position = 'fixed';
     }
   }
 
@@ -58,8 +58,8 @@ class Contact extends React.Component {
     // prevent more than 2 form submissions
     if (contact.name && contact.email && contact.inquiry) {
       this.setState(previousState => {
-        previousState.validation["msg"] = "1 sec...";
-        previousState.validation["error"] = false;
+        previousState.validation['msg'] = '1 sec...';
+        previousState.validation['error'] = false;
         return previousState;
       });
       axios
@@ -69,15 +69,15 @@ class Contact extends React.Component {
           inquiry: xssFilters.inHTMLData(contact.inquiry)
         })
         .then(response => this.handleFormMessage(response.data))
-        .catch(error => this.handleFormMessage("Something went wrong :("));
+        .catch(error => this.handleFormMessage('Something went wrong :('));
     } else {
       this.setState(previousState => {
-        previousState.validation["error"] = true;
+        previousState.validation['error'] = true;
         return previousState;
       });
       this.timer = setTimeout(() => {
         this.setState(previousState => {
-          previousState.validation["error"] = false;
+          previousState.validation['error'] = false;
           return previousState;
         });
       }, 1000);
@@ -86,34 +86,34 @@ class Contact extends React.Component {
   handleChange(e) {
     const filterType = e.target.name;
     const value = e.target.value;
-    const types = ["name", "email", "inquiry"];
-    if (value.includes("<script>")) {
+    const types = ['name', 'email', 'inquiry'];
+    if (value.includes('<script>')) {
       this.setState(previousState => {
-        previousState.validation["msg"] = "Watcha doing there?";
+        previousState.validation['msg'] = 'Watcha doing there?';
         return previousState;
       });
     } else {
       types.forEach(type => {
         type == filterType
           ? this.setState(previousState => {
-              previousState.validation["error"] = false;
-              previousState.validation["msg"] = "Submit";
+              previousState.validation['error'] = false;
+              previousState.validation['msg'] = 'Submit';
               previousState.inputs[type] = value;
               return previousState;
             })
-          : "";
+          : '';
       });
     }
   }
   handleFormMessage(msg) {
     // get current amount of form submissions
     this.setState(previousState => {
-      previousState.validation["msg"] = msg;
+      previousState.validation['msg'] = msg;
       return previousState;
     });
 
     if (localStorage) {
-      localStorage.setItem("contact", JSON.stringify(this.state));
+      localStorage.setItem('contact', JSON.stringify(this.state));
     }
 
     // Close the modal if submitted/failed after 2s
@@ -123,28 +123,28 @@ class Contact extends React.Component {
   }
   render() {
     const error = this.state.validation.error;
-    let errorClass = error ? "error" : "";
+    let errorClass = error ? 'error' : '';
     const errMsgs = [
-      "Lol, try again. 😀",
+      'Lol, try again. 😀',
       "Nope, you gotta fill 'em out. 😬",
-      "Almost, but not happening. 😒",
-      "Fill those out^^^ 😕"
+      'Almost, but not happening. 😒',
+      'Fill those out^^^ 😕'
     ];
-    let state = this.state.validation.msg !== "Submit" ? true : false;
+    let state = this.state.validation.msg !== 'Submit' ? true : false;
     let errMsg = () => errMsgs[Math.floor(Math.random() * errMsgs.length)];
     return (
       <section
         id="contact"
-        className={`contact wrapper ${this.state.useModal ? "modal" : ""} `}
+        className={`contact wrapper ${this.state.useModal ? 'modal' : ''} `}
         onClick={e => {
-          if (e.target.classList.contains("modal")) {
+          if (e.target.classList.contains('modal')) {
             this.props.dismissModal();
           }
         }}
       >
         <div
           className={`container ${
-            this.state.useModal ? "pattern-background" : ""
+            this.state.useModal ? 'pattern-background' : ''
           } `}
         >
           <div className="contact__heading heading">
@@ -152,7 +152,7 @@ class Contact extends React.Component {
           </div>
           <div className="contact__form">
             <form
-              className={state ? "disabled" : ""}
+              className={state ? 'disabled' : ''}
               onSubmit={e => this.handleSubmit(e, ReactDOM.findDOMNode(this))}
             >
               <input
@@ -217,7 +217,7 @@ class Contact extends React.Component {
   componentWillUnmount() {
     // Ugh ios safari bug w/ fixed modals
     if (this.iOS && this.props.useModal) {
-      document.body.style = "";
+      document.body.style = '';
     }
   }
 }

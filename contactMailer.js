@@ -15,7 +15,7 @@ const send = ({ email, name, text }) => {
   const message = {
     from: "zach@zachurich.com",
     to: user,
-    subject: `New Form Submission From ${from} - ${email}`,
+    subject: `New Form Submission From ${from}`,
     text,
     replyTo: email
   };

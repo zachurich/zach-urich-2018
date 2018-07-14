@@ -16,17 +16,15 @@ class Hero extends React.Component {
         <div id="text-wrapper" className="container">
           <div className="hero__heading heading">
             <h1 className="uppercase">{this.props.title}.</h1>
-            {this.props.date &&
-              <span className="hero__date">{this.props.date}</span>
-            }
           </div>
-          {this.props.description &&
+          {this.props.date && (
+              <span className="hero__date">{this.props.date}</span>
+          )}
+          {this.props.description && (
             <div className="hero__intro">
-              <h2>
-                {this.props.description}
-              </h2>
+              <h2>{this.props.description}</h2>
             </div>
-          }
+          )}
         </div>
       </section>
     );

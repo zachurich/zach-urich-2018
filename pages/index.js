@@ -17,13 +17,12 @@ import { dummyData } from "../helpers";
 import projects from "../projects.json";
 
 export default class Landing extends React.Component {
+  state = {
+    posts: this.props.posts.items || dummyData(4)
+  };
   static async getInitialProps({ req }) {
     const posts = await axios.get(endpoints.blog);
     return { posts: posts.data };
-  }
-  constructor(props) {
-    super(props);
-    this.state = { posts: this.props.posts.items || dummyData(4) };
   }
   componentDidMount() {
     if (this.state.posts.length < 1) {

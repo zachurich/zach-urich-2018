@@ -15,15 +15,16 @@ import { endpoints, links, nav } from "../config";
 import Link from "next/link";
 
 class Post extends React.Component {
+  state = {
+    post: {},
+    readNext: {}
+  };
+
   static async getInitialProps({ req }) {
     const posts = await axios.get(endpoints.blog);
     return { posts: posts.data };
   }
-  constructor() {
-    super();
 
-    this.state = { post: {}, readNext: {} };
-  }
   componentDidMount() {
     // If we have the post, go ahead and init state with data
     const post = this.pluckPost(this.props.posts.items)
@@ -90,10 +91,7 @@ class Post extends React.Component {
         <div className="post wrapper fade">
           {this.state.post ? (
             <div className="post__contain">
-              <Hero
-                title={this.state.post.title}
-                date={this.state.post.date}
-              />
+              <Hero title={this.state.post.title} date={this.state.post.date} />
               <div className="post__container">
                 <div className="container">
                   <div

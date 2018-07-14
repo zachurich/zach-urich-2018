@@ -93,6 +93,18 @@
   }
 }
 
+@keyframes fadeInDarkTheme {
+  0% {
+    background: rgba($black, 0);
+  }
+  30% {
+    background: rgba($black, 0);
+  }
+  100% {
+    background: rgba($bodyColor, 0.4);
+  }
+}
+
 @keyframes slideUp {
   20% {
     transform: translateY(100vh);
@@ -108,7 +120,7 @@ $scaleFactor: scale(1.2);
     transform: rotate(0deg);
   }
   45% {
-    transform: rotate(0deg)scale(1);
+    transform: rotate(0deg) scale(1);
   }
   50% {
     transform: rotate(0deg) $scaleFactor;
