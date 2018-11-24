@@ -1,5 +1,5 @@
 import React from "react";
-import Router from "next/router";
+import { withRouter } from "next/router";
 
 import Head from "../components/Head";
 import Hero from "../components/Hero";
@@ -11,79 +11,109 @@ import SocialIcons from "../components/SocialIcons";
 
 import axios from "axios";
 
-import { endpoints, links, nav } from "../config";
-import Link from "next/link";
+import { ENDPOINTS, SITE_LINKS, SITE_NAV } from "../config";
+import { getPosts, getSinglePost } from "../prismic-api";
+import { RichText } from "prismic-reactjs";
+import { linkResolver } from "../prismic-api/helper";
+import { formatDate, getRandomIndex } from "../helpers";
 
 class Post extends React.Component {
   state = {
-    post: {},
-    readNext: {}
+    post: this.props.post,
+    date: this.props.date,
+    uid: this.props.uid,
+    readNext: null
   };
 
-  static async getInitialProps({ req }) {
-    const posts = await axios.get(endpoints.blog);
-    return { posts: posts.data };
+  static async getInitialProps({ query }) {
+    const post = await getSinglePost({ uid: query.slug });
+    return {
+      post: post.data,
+      date: post.first_publication_date,
+      uid: post.uid
+    };
+  }
+
+  async fetchReadNext() {
+    const readNext = await getPosts({ pageSize: 10 });
+    return readNext;
+  }
+
+  async fetchPost(uid) {
+    const post = await getSinglePost({ uid });
+    return post;
   }
 
   componentDidMount() {
-    // If we have the post, go ahead and init state with data
-    const post = this.pluckPost(this.props.posts.items)
-      ? this.pluckPost(this.props.posts.items)
-      : "";
-
-    this.setState({ post, readNext: {} });
+    this.setReadNext();
   }
   componentWillReceiveProps(nextProps) {
-    const { slug } = this.props.url.query;
+    const { slug: currentSlug } = this.props.router.query;
+    const { slug: newSlug } = nextProps.url.query;
+    this.setPosts(newSlug);
+    this.setReadNext();
+  }
 
-    if (slug == nextProps.url.query.slug) {
-      this.fetchPosts();
-    } else {
-      // fade out old content, fade in new
-      this.fetchPosts(true);
-    }
-  }
-  componentWillMount() {
-    this.fetchPosts();
-  }
-  // Grab a post for the ReadNext
-  // Get the post by slug nabbed from route param
-  pluckPost(posts) {
-    const { url } = this.props;
-    return posts.filter(post => post.slug === url.query.slug)[0];
-  }
-  // Get all the posts
-  fetchPosts(animate) {
+  animateOut() {
+    let timeout;
     const postBody =
       typeof document != "undefined"
         ? document.querySelector(".post__contain")
         : null;
 
-    if (animate && postBody && typeof document != "undefined") {
+    if (postBody && typeof document != "undefined") {
       postBody.style.opacity = 0;
-      setTimeout(() => {
-        postBody.style.display = "none";
-      }, 300);
+      timeout = new Promise(resolve =>
+        setTimeout(() => {
+          postBody.style.display = "none";
+          resolve();
+        }, 300)
+      );
     }
 
-    return axios.get(endpoints.blog).then(res => {
-      this.setState({
-        post: this.pluckPost(res.data.items), // use our method to set state according to post we need
-        readNext:
-          res.data.items[
-            res.data.items.indexOf(this.pluckPost(res.data.items)) + 1
-          ]
-      });
-      if (animate && postBody && typeof document != "undefined") {
-        postBody.style.display = "block";
+    return timeout;
+  }
+  animateIn() {
+    let timeout;
+    const postBody =
+      typeof document != "undefined"
+        ? document.querySelector(".post__contain")
+        : null;
+    if (postBody && typeof document != "undefined") {
+      postBody.style.display = "block";
+      timeout = new Promise(resolve => {
         setTimeout(() => {
           postBody.style.opacity = 1;
-        }, 300);
-      }
+          resolve();
+        }, 700);
+      });
+    }
+
+    return timeout;
+  }
+  setReadNext() {
+    this.fetchReadNext().then(res => {
+      const readNext = res.results.filter(post => post.uid != this.props.uid);
+      this.setState({ readNext: getRandomIndex(readNext) });
+    });
+  }
+  setPosts(newSlug) {
+    let timeout;
+    timeout = this.animateOut().then(() => {
+      return this.fetchPost(newSlug).then(res => {
+        this.setState({
+          post: res.data,
+          date: res.first_publication_date
+        });
+        this.animateIn();
+      });
     });
   }
   render() {
     const { url } = this.props;
+    const { post, readNext, date } = this.state;
+    const title = post.title[0].text;
+    const body = post.body;
     return (
       <div>
         <Head url={url} />
@@ -91,22 +121,24 @@ class Post extends React.Component {
         <div className="post wrapper fade">
           {this.state.post ? (
             <div className="post__contain">
-              <Hero title={this.state.post.title} date={this.state.post.date} />
+              <Hero title={title} date={formatDate(date)} />
               <div className="post__container">
                 <div className="container">
-                  <div
-                    className="post__content"
-                    dangerouslySetInnerHTML={{
-                      __html: this.state.post.content
-                    }}
-                  />
+                  <div className="post__content">
+                    {RichText.render(body, linkResolver)}
+                  </div>
                   {this.state.readNext ? (
                     <span>
                       <hr />
                       <div className="post__footer">
-                        <ReadNext post={this.state.readNext} />
+                        {readNext && (
+                          <ReadNext
+                            title={readNext.data.title[0].text}
+                            uid={readNext.uid}
+                          />
+                        )}
                         <SocialIcons
-                          title={`"${this.state.post.title}"`}
+                          title={`"${title}"`}
                           url={`https://zachurich.com${url.asPath}`}
                         />
                       </div>
@@ -116,7 +148,7 @@ class Post extends React.Component {
                       <hr />
                       <div className="post__footer">
                         <SocialIcons
-                          title={`"${this.state.post.title}"`}
+                          title={`"${title}"`}
                           url={`https://zachurich.com${url.asPath}`}
                         />
                       </div>
@@ -127,11 +159,11 @@ class Post extends React.Component {
             </div>
           ) : null}
         </div>
-        <Footer nav={nav} links={links} url={url} />
+        <Footer nav={SITE_NAV} links={SITE_LINKS} url={url} />
         <ContactHOC url={url} />
       </div>
     );
   }
 }
 
-export default Post;
+export default withRouter(Post);

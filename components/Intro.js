@@ -5,7 +5,7 @@ import Blob from "../static/blob.svg";
 
 import { parallax } from "../helpers";
 
-import { title, intro } from "../config";
+import { SITE_TITLE, SITE_INTRO } from "../config";
 
 class Intro extends React.Component {
   componentDidMount() {
@@ -19,9 +19,11 @@ class Intro extends React.Component {
           <div className="intro__box box">
             <div className="intro__text">
               <h1 className="blue">
-                {title.split("").map((l, i) => <span key={i}>{l}</span>)}
+                {SITE_TITLE.split("").map((l, i) => (
+                  <span key={i}>{l}</span>
+                ))}
               </h1>
-              <h2>{intro}</h2>
+              <h2>{SITE_INTRO}</h2>
               <div className="intro__blob">
                 <Blob />
               </div>

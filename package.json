@@ -7,9 +7,11 @@
     "dev": "next dev",
     "dev:server": "node server.js",
     "build": "NODE_ENV=production next build",
-    "start": "NODE_ENV=production node ./server.js",
+    "prod:server": "NODE_ENV=production node ./server.js",
+    "prod": "npm run build && npm run prod:server",
     "deploy": "now rm zachurich.com -y && now",
-    "alias": "now alias"
+    "alias": "now alias",
+    "export": "next export"
   },
   "dependencies": {
     "autoprefixer": "^6.4.1",
@@ -31,9 +33,10 @@
     "node-sass": "^4.9.0",
     "nodemailer": "^4.6.7",
     "nodemailer-sendgrid-transport": "^0.2.0",
-    "normalize.css": "^7.0.0",
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^2.1.5",
+    "prismic-javascript": "^1.5.0",
+    "prismic-reactjs": "^0.3.2",
     "raw-loader": "^0.5.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -44,7 +47,6 @@
     "sass-loader": "^4.0.2",
     "webpack": "^2.7.0",
     "whatwg-fetch": "^2.0.4",
-    "wpapi": "^1.1.2",
     "xss-filters": "^1.2.7"
   },
   "devDependencies": {},

@@ -1,11 +1,12 @@
-export const title = "Zach Urich";
-export const intro =
+export const SITE_TITLE = "Zach Urich";
+export const SITE_INTRO =
   "Front-end developer & designer building things on the web.";
-export const endpoints = {
+export const ENDPOINTS = {
   blog: "https://wp.zachurichblog.site/wp-json/custom/v1/posts",
-  contact: "/api/contact"
+  contact: "/api/contact",
+  prismic: "https://zachurichblog.cdn.prismic.io/api/v2"
 };
-export const nav = [
+export const SITE_NAV = [
   {
     path: "/writing",
     icon: "pencil",
@@ -24,7 +25,7 @@ export const nav = [
     external: true
   }
 ];
-export const links = [
+export const SITE_LINKS = [
   {
     name: "Twitter",
     url: "http://twitter.com/zach462"
@@ -42,7 +43,7 @@ export const links = [
     url: "http://dribbble.com/zachurich"
   }
 ];
-export const about = `
+export const ABOUT_CONTENT = `
     <p>
       I'm passionate about learning and creating things. Starting out as a designer, 
       I taught myself how to code out of a desire to build my ideas. I fell in love 
@@ -57,3 +58,9 @@ export const about = `
 
     </p>
   `;
+
+export const WRITING = {
+  title: "Sometimes I write things...",
+  subtitle:
+    "I write about things related to Software Development, design, and random philisophical thoughts."
+};

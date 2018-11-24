@@ -6,12 +6,12 @@ const ReadNext = props => {
     <div className="readNext">
       Read Next:
       <Link
-        href={{ pathname: "/post", query: { slug: props.post.slug } }}
-        as={`/writing/${props.post.slug}`}
+        href={{ pathname: "/post", query: { slug: props.uid } }}
+        as={`/writing/${props.uid}`}
         prefetch
       >
         <a>
-          <span className="readNext__link">{props.post.title}</span>
+          <span className="readNext__link">{props.title}</span>
         </a>
       </Link>
     </div>
