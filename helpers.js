@@ -85,7 +85,7 @@ export const scrollToTop = scrollDuration => {
 };
 
 export const formatTitle = path => {
-  if (path != "/" && path.indexOf("contact") < 1) {
+  if (path && path != "/" && path.indexOf("contact") < 1) {
     const title = path.split("/").pop();
     const firstLetter = title.charAt(0).toUpperCase();
     return `/ ${firstLetter}${title.slice(1)}`;

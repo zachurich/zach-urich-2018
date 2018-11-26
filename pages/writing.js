@@ -1,5 +1,4 @@
 import React from "react";
-import Router from "next/router";
 
 import Head from "../components/Head";
 import Header from "../components/Header";
@@ -8,10 +7,7 @@ import Posts from "../components/Posts";
 import Footer from "../components/Footer";
 import ContactHOC from "../components/ContactHOC";
 
-import axios from "axios";
-
 import { SITE_LINKS, SITE_NAV, WRITING } from "../config";
-import { dummyData } from "../helpers";
 import { getPosts } from "../prismic-api";
 
 class Writing extends React.Component {

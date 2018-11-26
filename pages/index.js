@@ -1,6 +1,4 @@
 import React from "react";
-import axios from "axios";
-import xssFilters from "xss-filters";
 
 import Head from "../components/Head";
 import Header from "../components/Header";
@@ -11,8 +9,7 @@ import Posts from "../components/Posts";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
-import { ENDPOINTS, SITE_LINKS, SITE_NAV, ABOUT_CONTENT } from "../config";
-import { dummyData } from "../helpers";
+import { SITE_LINKS, SITE_NAV, ABOUT_CONTENT } from "../config";
 
 import projects from "../projects.json";
 import { getPosts } from "../prismic-api";

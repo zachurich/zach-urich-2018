@@ -11,7 +11,8 @@
     "prod": "npm run build && npm run prod:server",
     "deploy": "now rm zachurich.com -y && now",
     "alias": "now alias",
-    "export": "next export"
+    "export:dev": "npm run build && snext export && cd out && serve -p 8080",
+    "export:prod": "npm run build && next export && cd out"
   },
   "dependencies": {
     "autoprefixer": "^6.4.1",
@@ -49,6 +50,8 @@
     "whatwg-fetch": "^2.0.4",
     "xss-filters": "^1.2.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "lodash": "^4.17.11"
+  },
   "author": "Zach Urich"
 }

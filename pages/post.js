@@ -1,3 +1,4 @@
+import { get } from "lodash";
 import React from "react";
 import { withRouter } from "next/router";
 
@@ -19,9 +20,9 @@ import { formatDate, getRandomIndex } from "../helpers";
 
 class Post extends React.Component {
   state = {
-    post: this.props.post,
-    date: this.props.date,
-    uid: this.props.uid,
+    post: this.props.post || {},
+    date: this.props.date || "",
+    uid: this.props.uid || "",
     readNext: null
   };
 
@@ -112,8 +113,8 @@ class Post extends React.Component {
   render() {
     const { url } = this.props;
     const { post, readNext, date } = this.state;
-    const title = post.title[0].text;
-    const body = post.body;
+    const title = get(post, "title[0].text");
+    const body = get(post, "body");
     return (
       <div>
         <Head url={url} />
@@ -124,9 +125,11 @@ class Post extends React.Component {
               <Hero title={title} date={formatDate(date)} />
               <div className="post__container">
                 <div className="container">
-                  <div className="post__content">
-                    {RichText.render(body, linkResolver)}
-                  </div>
+                  {body && (
+                    <div className="post__content">
+                      {RichText.render(body, linkResolver)}
+                    </div>
+                  )}
                   {this.state.readNext ? (
                     <span>
                       <hr />
