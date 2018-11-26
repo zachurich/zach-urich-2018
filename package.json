@@ -11,7 +11,7 @@
     "prod": "npm run build && npm run prod:server",
     "deploy": "now rm zachurich.com -y && now",
     "alias": "now alias",
-    "export:dev": "npm run build && snext export && cd out && serve -p 8080",
+    "export:dev": "npm run build && next export && cd out && serve -p 8080",
     "export:prod": "npm run build && next export && cd out"
   },
   "dependencies": {

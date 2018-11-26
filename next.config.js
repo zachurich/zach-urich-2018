@@ -2,6 +2,20 @@ const path = require("path");
 const glob = require("glob");
 
 module.exports = {
+  exportPathMap: function() {
+    return {
+      "/": { page: "/" },
+      "/writing": { page: "/writing" },
+      "/writing/guidelines-to-keep-in-mind-when-embracing-unknowns": {
+        page: "/post",
+        query: { slug: "guidelines-to-keep-in-mind-when-embracing-unknowns" }
+      },
+      "/writing/education-and-learning": {
+        page: "/post",
+        query: { slug: "education-and-learning" }
+      }
+    };
+  },
   webpack: (config, { dev }) => {
     config.module.rules.push(
       {
