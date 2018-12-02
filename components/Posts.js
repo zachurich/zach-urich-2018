@@ -27,7 +27,7 @@ const Posts = props => {
                 key={id}
                 id={id}
                 path={path}
-                date={formatDate(date)}
+                date={formatDate(data.date || date)}
                 layout={layout}
                 {...content}
               />

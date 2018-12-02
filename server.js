@@ -27,12 +27,16 @@ app.prepare().then(() => {
       text: inquiry
     })
       .then(() => {
-        console.log("Submitted!");
-        res.send("Submitted!");
+        res.send({
+          msg: "Submitted!",
+          error: false
+        });
       })
       .catch(err => {
-        console.log(err);
-        res.send("Something went wrong...");
+        res.send({
+          msg: "Something went wrong...",
+          error: true
+        });
       });
   });
 

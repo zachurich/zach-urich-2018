@@ -30,7 +30,7 @@ class Post extends React.Component {
     const post = await getSinglePost({ uid: query.slug });
     return {
       post: post.data,
-      date: post.first_publication_date,
+      date: post.data.date || post.first_publication_date,
       uid: post.uid
     };
   }

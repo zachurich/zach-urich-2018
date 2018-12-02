@@ -109,6 +109,7 @@ export const parallax = selectors => {
 
 // ew
 export function formatDate(ts) {
+  ts = ts.replace("+0000", ""); // safari doesn't like +0000
   const dateObj = new Date(ts);
   const dateStr = dateObj.toDateString();
   const dateArr = dateStr.split(" ");
