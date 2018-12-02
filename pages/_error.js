@@ -9,12 +9,12 @@ import FourOhFour from "../components/FourOhFour";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
-import { endpoints, links, nav, about } from "../config";
+import { ENDPOINTS, SITE_LINKS, SITE_NAV } from "../config";
 import { dummyData } from "../helpers";
 
 export default class Error extends React.Component {
   static async getInitialProps({ req }) {
-    const posts = await axios.get(endpoints.blog);
+    const posts = await axios.get(ENDPOINTS.blog);
     return { posts: posts.data };
   }
   constructor(props) {
@@ -38,7 +38,7 @@ export default class Error extends React.Component {
     Router.push(`${url.pathname}`);
   }
   fetchPosts() {
-    axios.get(endpoints.blog).then(res => {
+    axios.get(ENDPOINTS.blog).then(res => {
       this.setState({
         posts: res.data.items
       });
@@ -58,7 +58,7 @@ export default class Error extends React.Component {
             dismissModal={this.dismissModal}
           />
         )}
-        <Footer nav={nav} links={links} />
+        <Footer nav={SITE_NAV} links={SITE_LINKS} />
       </div>
     );
   }

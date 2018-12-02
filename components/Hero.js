@@ -18,7 +18,7 @@ class Hero extends React.Component {
             <h1 className="uppercase">{this.props.title}.</h1>
           </div>
           {this.props.date && (
-              <span className="hero__date">{this.props.date}</span>
+            <span className="hero__date">{this.props.date}</span>
           )}
           {this.props.description && (
             <div className="hero__intro">

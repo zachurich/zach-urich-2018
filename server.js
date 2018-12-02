@@ -18,16 +18,8 @@ app.prepare().then(() => {
     return app.render(req, res, `/post`, params);
   });
 
-  server.get("*", (req, res) => {
-    const params = req.query;
-    if (params.contact) {
-      res.redirect("/");
-    }
-    return handle(req, res);
-  });
-
+  // Handle contact form submissions
   server.post("/api/contact", (req, res) => {
-    console.log(req.body);
     const { name, email, inquiry } = req.body;
     contactMailer({
       email,
@@ -35,13 +27,26 @@ app.prepare().then(() => {
       text: inquiry
     })
       .then(() => {
-        console.log("Submitted!");
-        res.send("Submitted!");
+        res.send({
+          msg: "Submitted!",
+          error: false
+        });
       })
       .catch(err => {
-        console.log(err);
-        res.send("Something went wrong...");
+        res.send({
+          msg: "Something went wrong...",
+          error: true
+        });
       });
+  });
+
+  // Handle all pages
+  server.get("*", (req, res) => {
+    const params = req.query;
+    if (params.contact) {
+      res.redirect("/"); // redirect if /contact is accessed directly
+    }
+    return handle(req, res);
   });
 
   server.listen(port || 3000, err => {
