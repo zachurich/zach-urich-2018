@@ -9,6 +9,7 @@
     "build": "NODE_ENV=production next build",
     "prod:server": "NODE_ENV=production node ./server.js",
     "prod": "npm run build && npm run prod:server",
+    "start": "NODE_ENV=production node ./server.js",
     "deploy": "now rm zachurich.com -y && now",
     "alias": "now alias",
     "export:dev": "npm run build && next export && cd out && serve -p 8080",
