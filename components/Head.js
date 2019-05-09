@@ -31,7 +31,7 @@ export default props => (
       <meta name="twitter:creator" content="@zachurich" />
       <meta property="og:title" content={props.title || "zachurich.com"} />
       <meta property="twitter:title" content={props.title || "zachurich.com"} />
-      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:card" content="summary" />
       <meta
         property="og:description"
         content={props.description || "Zach's Website"}
