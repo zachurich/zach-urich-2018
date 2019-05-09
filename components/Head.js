@@ -29,7 +29,9 @@ export default props => (
       <meta name="author" content="Zach Urich" />
       <meta name="twitter:site" content="@zachurich" />
       <meta name="twitter:creator" content="@zachurich" />
+      <meta property="og:title" content={props.title || "zachurich.com"} />
       <meta property="twitter:title" content={props.title || "zachurich.com"} />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta
         property="og:description"
         content={props.description || "Zach's Website"}
