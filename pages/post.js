@@ -114,10 +114,11 @@ class Post extends React.Component {
     const { url } = this.props;
     const { post, readNext, date } = this.state;
     const title = get(post, "title[0].text");
+    const excerpt = get(post, "excerpt[0].text");
     const body = get(post, "body");
     return (
       <div>
-        <Head url={url} />
+        <Head url={url} title={title} description={excerpt} />
         <Header url={url} />
         <div className="post wrapper fade">
           {this.state.post ? (

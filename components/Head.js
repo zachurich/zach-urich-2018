@@ -29,6 +29,23 @@ export default props => (
       <meta name="author" content="Zach Urich" />
       <meta name="twitter:site" content="@zachurich" />
       <meta name="twitter:creator" content="@zachurich" />
+      <meta property="twitter:title" content={props.title || "zachurich.com"} />
+      <meta
+        property="og:description"
+        content={props.description || "Zach's Website"}
+      />
+      <meta
+        property="twitter:description"
+        content={props.description || "Zach's Website"}
+      />
+      <meta
+        property="twitter:url"
+        content={`https://zachurich.com${props.url.asPath}`}
+      />
+      <meta
+        property="og:url"
+        content={`https://zachurich.com${props.url.asPath}`}
+      />
       <meta
         name="viewport"
         content="width=device-width,initial-scale=1,maximum-scale=1"
