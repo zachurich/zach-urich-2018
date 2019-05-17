@@ -14,7 +14,7 @@ import { dummyData } from "../helpers";
 
 export default class Error extends React.Component {
   static async getInitialProps({ req }) {
-    const posts = await axios.get(ENDPOINTS.blog);
+    const posts = await axios.get(ENDPOINTS.prismic);
     return { posts: posts.data };
   }
   constructor(props) {
@@ -38,7 +38,7 @@ export default class Error extends React.Component {
     Router.push(`${url.pathname}`);
   }
   fetchPosts() {
-    axios.get(ENDPOINTS.blog).then(res => {
+    axios.get(ENDPOINTS.prismic).then(res => {
       this.setState({
         posts: res.data.items
       });

@@ -20,7 +20,12 @@ class Intro extends React.Component {
             <div className="intro__text">
               <h1 className="blue">
                 {SITE_TITLE.split("").map((l, i) => (
-                  <span key={i}>{l}</span>
+                  <span
+                    className={`animate__children animate__children__${i}`}
+                    key={i}
+                  >
+                    {l}
+                  </span>
                 ))}
               </h1>
               <h2>{SITE_INTRO}</h2>

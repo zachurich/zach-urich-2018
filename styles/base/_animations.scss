@@ -38,6 +38,21 @@
   animation: fade 0.4s ease-in-out forwards;
 }
 
+@mixin staggerAnimation($length, $multiplier: 0.06) {
+  @for $i from 0 through $length {
+    &__#{$i} {
+      animation-delay: #{$i * $multiplier}s;
+    }
+  }
+}
+
+.animate__children {
+  display: inline-block;
+  transform: scale(0);
+  animation: growInCool 0.3s cubic-bezier(0.17, 0, 0, 1) forwards;
+  white-space: pre;
+}
+
 @keyframes growIn {
   0% {
     opacity: 0;
@@ -111,6 +126,30 @@
   }
   100% {
     transform: translateY(0%);
+  }
+}
+
+@keyframes growInSubtle {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes growInCool {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 

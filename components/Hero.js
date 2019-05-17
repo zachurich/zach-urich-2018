@@ -15,7 +15,19 @@ class Hero extends React.Component {
       <section className="hero wrapper pattern-background">
         <div id="text-wrapper" className="container">
           <div className="hero__heading heading">
-            <h1 className="uppercase">{this.props.title}.</h1>
+            <h1 className="uppercase">
+              {this.props.title.split("").map((l, i) => {
+                return (
+                  <span
+                    className={`animate__children animate__children__${i}`}
+                    key={i}
+                    dangerouslySetInnerHTML={{
+                      __html: l !== " " ? l : "&nbsp;"
+                    }}
+                  />
+                );
+              })}
+            </h1>
           </div>
           {this.props.date && (
             <span className="hero__date">{this.props.date}</span>

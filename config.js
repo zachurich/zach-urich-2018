@@ -1,6 +1,6 @@
 export const SITE_TITLE = "Zach Urich";
 export const SITE_INTRO =
-  "Front-end developer & designer building things on the web.";
+  "Front-end developer & designer building things on the web.";
 export const ENDPOINTS = {
   blog: "https://wp.zachurichblog.site/wp-json/custom/v1/posts",
   contact: "/api/contact",
