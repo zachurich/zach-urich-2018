@@ -62,5 +62,5 @@ export const ABOUT_CONTENT = `
 export const WRITING = {
   title: "Sometimes I write things...",
   subtitle:
-    "I write about things related to Software Development, design, and random philisophical thoughts."
+    ""
 };
