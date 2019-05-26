@@ -1,9 +1,11 @@
 import React from "react";
 import Link from "next/link";
 
-const ReadNext = props => {
+const ReadNext = ({ isVisible, ...props }) => {
+  const className = `readNext ${isVisible ? "inView" : ""}`;
+  console.log(className);
   return (
-    <div className="readNext">
+    <div className={className}>
       Read Next:
       <Link
         href={{ pathname: "/post", query: { slug: props.uid } }}

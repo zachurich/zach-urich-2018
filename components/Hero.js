@@ -4,7 +4,7 @@ import Link from "next/link";
 import Icon from "./Icon";
 import Writing from "../static/writing.svg";
 
-import { parallax } from "../helpers";
+import { parallax, createAnimatedHeadingHtml } from "../helpers";
 
 class Hero extends React.Component {
   componentDidMount() {
@@ -15,19 +15,12 @@ class Hero extends React.Component {
       <section className="hero wrapper pattern-background">
         <div id="text-wrapper" className="container">
           <div className="hero__heading heading">
-            <h1 className="uppercase">
-              {this.props.title.split("").map((l, i) => {
-                return (
-                  <span
-                    className={`animate__children animate__children__${i}`}
-                    key={i}
-                    dangerouslySetInnerHTML={{
-                      __html: l !== " " ? l : "&nbsp;"
-                    }}
-                  />
-                );
-              })}
-            </h1>
+            <h1
+              className="uppercase animate__children"
+              dangerouslySetInnerHTML={{
+                __html: createAnimatedHeadingHtml(this.props.title)
+              }}
+            />
           </div>
           {this.props.date && (
             <span className="hero__date">{this.props.date}</span>

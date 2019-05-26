@@ -1,5 +1,5 @@
 .readNext {
-  opacity: 0;
+  transform: scale(0);
   text-align: center;
   margin-bottom: 50px;
   background-color: white;
@@ -9,8 +9,6 @@
   font-style: italic;
   color: $red;
   border-radius: 10px;
-  animation: growIn 0.3s cubic-bezier(0.17, 0, 0, 1) forwards;
-  animation-delay: 1s;
   &__link {
     font-style: initial;
     color: $textColor;

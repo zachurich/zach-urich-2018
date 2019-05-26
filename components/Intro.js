@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import Blob from "../static/blob.svg";
 
-import { parallax } from "../helpers";
+import { parallax, createAnimatedHeadingHtml } from "../helpers";
 
 import { SITE_TITLE, SITE_INTRO } from "../config";
 
@@ -18,16 +18,12 @@ class Intro extends React.Component {
         <div className="container">
           <div className="intro__box box">
             <div className="intro__text">
-              <h1 className="blue">
-                {SITE_TITLE.split("").map((l, i) => (
-                  <span
-                    className={`animate__children animate__children__${i}`}
-                    key={i}
-                  >
-                    {l}
-                  </span>
-                ))}
-              </h1>
+              <h1
+                className="blue animate__children"
+                dangerouslySetInnerHTML={{
+                  __html: createAnimatedHeadingHtml(SITE_TITLE)
+                }}
+              />
               <h2>{SITE_INTRO}</h2>
               <div className="intro__blob">
                 <Blob />

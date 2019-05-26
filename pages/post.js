@@ -17,6 +17,7 @@ import { getPosts, getSinglePost } from "../prismic-api";
 import { RichText } from "prismic-reactjs";
 import { linkResolver } from "../prismic-api/helper";
 import { formatDate, getRandomIndex } from "../helpers";
+import TrackVisibility from "react-on-screen";
 
 class Post extends React.Component {
   state = {
@@ -136,10 +137,12 @@ class Post extends React.Component {
                       <hr />
                       <div className="post__footer">
                         {readNext && (
-                          <ReadNext
-                            title={readNext.data.title[0].text}
-                            uid={readNext.uid}
-                          />
+                          <TrackVisibility>
+                            <ReadNext
+                              title={readNext.data.title[0].text}
+                              uid={readNext.uid}
+                            />
+                          </TrackVisibility>
                         )}
                         <SocialIcons
                           title={`"${title}"`}

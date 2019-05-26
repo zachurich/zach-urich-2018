@@ -122,3 +122,29 @@ export function getRandomIndex(arr) {
   const random = arr[Math.floor(Math.random() * arr.length)];
   return random;
 }
+
+export const createAnimatedHeadingHtml = sentence => {
+  const letters = sentence.split("").map((letter, index) => ({
+    letter,
+    index,
+    startOfWord: sentence[index - 1] === " " || index === 0 ? true : false,
+    endOfWord:
+      sentence[index + 1] === " " || index === sentence.length ? true : false
+  }));
+  let heading = [];
+  letters.map(({ letter, index, startOfWord, endOfWord }) => {
+    if (startOfWord) {
+      heading.push(`<span class="animate__children__word">`);
+    }
+    heading.push(
+      `<span class="animate__children__letter animate__children__letter__${
+        letter === " " ? "space" : index
+      }">${letter}</span>`
+    );
+    if (endOfWord) {
+      heading.push(`</span>`);
+    }
+  });
+
+  return heading.join("");
+};

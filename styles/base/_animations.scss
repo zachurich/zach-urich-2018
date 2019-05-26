@@ -2,6 +2,10 @@
   display: block;
 }
 
+.inView {
+  animation: growInCool 0.5s cubic-bezier(0.17, 0, 0, 1) forwards;
+}
+
 .slide-appear {
   opacity: 0.01;
 }
@@ -30,7 +34,6 @@
 
 .growIn-leave.growIn-leave-active {
   opacity: 0.01;
-  transform: scale(0.95);
   transition: all 0.4s cubic-bezier(0.87, 0, 0.1, 1);
 }
 
@@ -40,13 +43,17 @@
 
 @mixin staggerAnimation($length, $multiplier: 0.06) {
   @for $i from 0 through $length {
-    &__#{$i} {
+    &__letter__#{$i} {
       animation-delay: #{$i * $multiplier}s;
     }
   }
 }
 
-.animate__children {
+.animate__children__word {
+  white-space: nowrap;
+}
+
+.animate__children__letter {
   display: inline-block;
   transform: scale(0);
   animation: growInCool 0.3s cubic-bezier(0.17, 0, 0, 1) forwards;

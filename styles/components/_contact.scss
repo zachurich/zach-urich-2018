@@ -126,7 +126,7 @@
       border-radius: 0;
       background-color: $bodyColor;
       background-size: cover;
-      animation: slideUp 0.8s cubic-bezier(0.17, 0, 0, 1) forwards;
+      animation: growInCool 0.4s cubic-bezier(0.17, 0, 0, 1) forwards;
       @media screen and (min-width: $small) {
         border-radius: 10px;
         display: block;

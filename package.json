@@ -43,6 +43,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-ga": "^2.5.3",
+    "react-on-screen": "^2.1.1",
     "react-share": "^1.19.1",
     "react-svg": "^2.2.18",
     "react-transition-group": "^1.2.1",
