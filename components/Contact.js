@@ -69,7 +69,12 @@ class Contact extends React.Component {
           inquiry: xssFilters.inHTMLData(contact.inquiry)
         })
         .then(response => this.handleFormMessage(response.data))
-        .catch(error => this.handleFormMessage("Something went wrong..."));
+        .catch(error =>
+          this.handleFormMessage({
+            msg: "Something went wrong...",
+            error: true
+          })
+        );
     } else {
       this.setState(previousState => {
         previousState.validation["error"] = true;
@@ -111,7 +116,6 @@ class Contact extends React.Component {
       previousState.validation["msg"] = data.msg;
       return previousState;
     });
-
     if (localStorage && !data.error) {
       localStorage.setItem("contact", JSON.stringify(this.state));
     }

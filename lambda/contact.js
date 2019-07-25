@@ -30,27 +30,25 @@ const send = ({ email, name, text }) => {
 exports.handler = function(event, context, callback) {
   // your server-side functionality
   const { name, email, inquiry } = JSON.parse(event.body);
-  console.log(event);
-  console.log(event.body);
   send({
     email,
     name,
     text: inquiry
   })
-    .then(() => {
+    .then(() =>
       callback(null, {
         statusCode: 200,
         body: "OK!",
         msg: "Submitted!",
         error: false
-      });
-    })
-    .catch(err => {
+      })
+    )
+    .catch(err =>
       callback(null, {
         statusCode: 500,
         body: "Something went wrong...",
         msg: "Something went wrong...",
         error: true
-      });
-    });
+      })
+    );
 };

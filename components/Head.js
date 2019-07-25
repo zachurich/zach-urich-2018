@@ -4,6 +4,7 @@ import ReactGA from "react-ga";
 import stylesheet from "../styles/style.scss";
 
 import { formatTitle } from "../helpers";
+import { SITE_INTRO, SITE_TITLE } from "../config";
 
 export default props => (
   <div>
@@ -26,7 +27,7 @@ export default props => (
       <title>{`Zach Urich ${
         props.url ? formatTitle(props.url.asPath) : ""
       }`}</title>
-      <meta name="author" content="Zach Urich" />
+      <meta name="author" content={`${SITE_TITLE} - Full Stack Developer`} />
       <meta name="twitter:site" content="@zachurich" />
       <meta name="twitter:creator" content="@zachurich" />
       <meta property="og:title" content={props.title || "zachurich.com"} />
@@ -52,10 +53,7 @@ export default props => (
         name="viewport"
         content="width=device-width,initial-scale=1,maximum-scale=1"
       />
-      <meta
-        name="description"
-        content="Zach Urich is a software engineer, designer, and wanabe cartoon artist."
-      />
+      <meta name="description" content={SITE_INTRO} />
       <meta
         name="viewport"
         content="initial-scale=1.0, width=device-width"
