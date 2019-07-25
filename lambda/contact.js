@@ -38,6 +38,7 @@ exports.handler = function(event, context, callback) {
     .then(() => {
       callback(null, {
         statusCode: 200,
+        body: "OK!",
         msg: "Submitted!",
         error: false
       });
@@ -45,6 +46,7 @@ exports.handler = function(event, context, callback) {
     .catch(err => {
       callback(null, {
         statusCode: 500,
+        body: "Something went wrong...",
         msg: "Something went wrong...",
         error: true
       });
