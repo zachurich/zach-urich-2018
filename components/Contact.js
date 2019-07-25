@@ -63,15 +63,11 @@ class Contact extends React.Component {
         return previousState;
       });
       axios
-        .post(
-          ENDPOINTS.contact,
-          {
-            name: xssFilters.inHTMLData(contact.name),
-            email: xssFilters.inHTMLData(contact.email),
-            inquiry: xssFilters.inHTMLData(contact.inquiry)
-          },
-          { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
-        )
+        .post(ENDPOINTS.contact, {
+          name: xssFilters.inHTMLData(contact.name),
+          email: xssFilters.inHTMLData(contact.email),
+          inquiry: xssFilters.inHTMLData(contact.inquiry)
+        })
         .then(response => this.handleFormMessage(response.data))
         .catch(error => this.handleFormMessage("Something went wrong..."));
     } else {
