@@ -30,6 +30,8 @@ const send = ({ email, name, text }) => {
 exports.handler = function(event, context, callback) {
   // your server-side functionality
   const { name, email, inquiry } = JSON.parse(event.body);
+  console.log(event);
+  console.log(event.body);
   send({
     email,
     name,
