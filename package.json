@@ -13,11 +13,11 @@
     "deploy": "now rm zachurich.com -y && now",
     "alias": "now alias",
     "export:dev": "npm run build && next export && cd out && serve -p 8080",
-    "export:prod": "npm run build && next export && cd out"
+    "export:prod": "npm run build && next export"
   },
   "dependencies": {
     "autoprefixer": "^6.4.1",
-    "axios": "^0.16.2",
+    "axios": "^0.19.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^6.3.2",
@@ -32,7 +32,7 @@
     "file-loader": "^0.9.0",
     "glob": "^7.1.2",
     "next": "^6.1.1",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.12.0",
     "nodemailer": "^4.6.7",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "postcss-easy-import": "^3.0.0",
@@ -53,7 +53,7 @@
     "xss-filters": "^1.2.7"
   },
   "devDependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.15"
   },
   "author": "Zach Urich"
 }
