@@ -52,8 +52,10 @@ class Post extends React.Component {
   componentWillReceiveProps(nextProps) {
     const { slug: currentSlug } = this.props.router.query;
     const { slug: newSlug } = nextProps.url.query;
-    this.setPosts(newSlug);
-    this.setReadNext();
+    if (currentSlug !== newSlug) {
+      this.setPosts(newSlug);
+      this.setReadNext();
+    }
   }
 
   animateOut() {

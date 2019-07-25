@@ -3,7 +3,6 @@ import Link from "next/link";
 
 const ReadNext = ({ isVisible, ...props }) => {
   const className = `readNext ${isVisible ? "inView" : ""}`;
-  console.log(className);
   return (
     <div className={className}>
       Read Next:

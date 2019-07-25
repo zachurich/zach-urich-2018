@@ -3,7 +3,7 @@ export const SITE_INTRO =
   "Front-end developer & designer building things on the web.";
 export const ENDPOINTS = {
   blog: "https://wp.zachurichblog.site/wp-json/custom/v1/posts",
-  contact: "/api/contact",
+  contact: "/",
   prismic: "https://zachurichblog.cdn.prismic.io/api/v2"
 };
 export const SITE_NAV = [
@@ -61,6 +61,5 @@ export const ABOUT_CONTENT = `
 
 export const WRITING = {
   title: "Sometimes I write things...",
-  subtitle:
-    ""
+  subtitle: ""
 };
