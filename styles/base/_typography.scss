@@ -15,7 +15,7 @@ body {
   color: $textColor;
   &.dark-theme {
     background-color: $darkBlack;
-  } 
+  }
 }
 
 h1 {
@@ -68,6 +68,10 @@ textarea {
   font-size: 1.0625rem;
   margin-top: 0;
   line-height: 2;
+}
+
+.dark-theme p {
+  color: white;
 }
 
 p {

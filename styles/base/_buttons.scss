@@ -1,5 +1,5 @@
 input[type="submit"],
-button,
+.button,
 a.button {
   display: block;
   max-width: 100px;
@@ -15,8 +15,9 @@ a.button {
   color: $red;
   padding: 4px 35px;
   box-shadow: $buttonShadow;
+  text-decoration: none;
   transition: 0.1s ease-in-out;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   &:hover,
   &:focus {
     transform: scale(1.05);
@@ -24,6 +25,25 @@ a.button {
     outline: none;
     color: white;
     background-color: $red !important;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.button-transitions {
+  cursor: pointer;
+  box-shadow: $buttonShadow;
+  transition: 0.1s ease-in-out;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    outline: none;
+    color: white;
   }
   &:active {
     transform: scale(0.95);
@@ -45,7 +65,7 @@ a.button {
   border-radius: 25px;
   right: 10px;
   bottom: 10px;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   @media screen and (min-width: $mobile) {
     bottom: 20px;
     right: 20px;

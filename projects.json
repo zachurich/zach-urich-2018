@@ -2,7 +2,7 @@
   {
     "title": "Webnotes",
     "img": { "src": "static/projects/webnotes-logo.svg", "alt": "" },
-    "link": "http://webnotes.co",
+    "link": "https://zachurich.github.io/webnotes-landing/",
     "tech": [
       {
         "name": "React",
@@ -17,13 +17,12 @@
         "link": "https://firebase.google.com/"
       }
     ],
-    "description":
-      "Webnotes lets you write and store notes in the cloud. Using user authentication, notes can be written and accessed on any device. Notable features include creating, deleting, editing, and writing notes in markdown."
+    "description": "Webnotes is a small React-based side-project. Notable features include creating, deleting, editing, and writing notes in markdown."
   },
   {
     "title": "Explore St. Louis",
     "img": { "src": "static/projects/explore-logo.svg", "alt": "" },
-    "link": "https://explorestlouis.com",
+    "link": "https://explorestlouis.com/partner-services-directory/",
     "tech": [
       {
         "name": "React",
@@ -31,10 +30,49 @@
       },
       {
         "name": "Wordpress REST API",
-        "link": "https://reactjs.org"
+        "link": "https://developer.wordpress.org/rest-api/"
       }
     ],
-    "description":
-      "<a href='https://explorestlouis.com'>Explorestlouis.com</a> is a marketing site dedicated to providing locals and tourists information and resources for the city of St. Louis. I led front-end development on their <a href='https://explorestlouis.com/things-to-do/'>Parter Listings</a> that allow users to find destinations that are within their interest and proximity."
+    "description": "I led front-end development on Explore Stlouis's <a href='https://explorestlouis.com/things-to-do/'>Parter Listings</a> that allow users to find destinations that are within their interest and proximity."
+  },
+  {
+    "title": "Cornerstone",
+    "img": { "src": "static/projects/cornerstone-logo.svg", "alt": "" },
+    "link": "https://explorestlouis.com",
+    "tech": [
+      {
+        "name": "Wordpress",
+        "link": "https://wordpress.org"
+      },
+      {
+        "name": "React",
+        "link": "https://reactjs.org"
+      },
+      {
+        "name": "Wordpress REST API",
+        "link": "https://developer.wordpress.org/rest-api/"
+      }
+    ],
+    "description": "Wordpress marketing site for <a href='https://www.cornerstoneinsurancegroup.com/'>Cornerstone Insurance Group</a>. I led development, creating custom Wordpress plugins and using React to drive data from the Wordpress REST API."
+  },
+  {
+    "title": "SES",
+    "img": { "src": "static/projects/ses-logo-white.svg", "alt": "" },
+    "link": "https://sesonline.com/",
+    "tech": [
+      {
+        "name": "Magento",
+        "link": "https://magento.com/"
+      },
+      {
+        "name": "PHP",
+        "link": "https://www.php.net/"
+      },
+      {
+        "name": "Node",
+        "link": "https://nodejs.org/en/"
+      }
+    ],
+    "description": "eCommerce platform for Security Equipment Supply. I was mostly in charge of front-end stuff on this project."
   }
 ]

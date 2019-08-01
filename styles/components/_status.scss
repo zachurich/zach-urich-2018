@@ -44,7 +44,7 @@
   }
 
   &__img {
-    background-image: url("/static/me2-small.JPG");
+    background-image: url("/static/me_square.JPG");
     background-color: white;
     background-size: cover;
     background-position: center;
@@ -58,7 +58,7 @@
     @media screen and (min-width: $smaller) {
       border-radius: 0 10px 10px 0;
       border: none;
-      background-image: url("/static/me2.JPG");
+      background-image: url("/static/me_portrait.JPG");
       margin-bottom: 0;
       flex-basis: 50%;
     }

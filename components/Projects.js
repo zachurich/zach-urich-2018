@@ -1,35 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import Modal from "./Modal";
+
+const DEFAULT_CONTENT = {
+  title: [],
+  img: { src: "", alt: "" },
+  description: "",
+  tech: [],
+  link: "",
+  index: 0
+};
 
 const Projects = props => {
-  const Tags = project => {
-    return project.tech.map((tech, i) => (
+  const [modalToggle, setModalToggle] = useState({
+    open: false,
+    content: DEFAULT_CONTENT
+  });
+  const handleToggle = (open, content = DEFAULT_CONTENT) => {
+    setModalToggle(() => {
+      return {
+        open,
+        content
+      };
+    });
+  };
+  const Tags = tech => {
+    return tech.map((tech, i) => (
       <a key={i} className="tech" href={tech.link}>
         {tech.name}
       </a>
     ));
   };
 
-  const Projects = projects => {
+  const List = projects => {
     return projects.map((project, index) => (
-      <div
-        key={index}
-        className={`project ${(index + 1) % 2 === 0 ? "even" : "odd"}`}
-      >
-        <div className="project__image">
+      <div key={index} className={`project project--${index + 1}`}>
+        <button
+          className="project__image button-transitions"
+          onClick={() => handleToggle(true, { ...project, index })}
+        >
           <img src={project.img.src} alt={project.img.alt} />
-        </div>
-        <div className="project__content">
-          <h3>{project.title}</h3>
-          <div className="project__stack">{Tags(project)}</div>
-          <p
-            className="project__description"
-            dangerouslySetInnerHTML={{ __html: project.description }}
-          />
-          <a href={project.link} target="_blank">
-            View Project
-          </a>
-        </div>
+        </button>
       </div>
     ));
   };
@@ -40,8 +51,29 @@ const Projects = props => {
         <div className="projects__heading heading">
           <h2>Things I've Worked On</h2>
         </div>
-        <div className="projects__list">{Projects(props.projects)}</div>
+        <div className="projects__list">{List(props.projects)}</div>
       </div>
+      <Modal toggle={modalToggle} dismissModal={handleToggle} submitText="View">
+        <div className={`project project--${modalToggle.content.index + 1}`}>
+          <div className="project__logo">
+            <img
+              src={modalToggle.content.img.src}
+              alt={modalToggle.content.img.alt}
+            />
+          </div>
+          <div className="project__content">
+            <div className="project__stack">
+              {Tags(modalToggle.content.tech)}
+            </div>
+            <p
+              className="project__description"
+              dangerouslySetInnerHTML={{
+                __html: modalToggle.content.description
+              }}
+            />
+          </div>
+        </div>
+      </Modal>
     </section>
   );
 };
