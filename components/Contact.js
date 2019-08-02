@@ -127,11 +127,12 @@ class Contact extends React.Component {
   }
   render() {
     const error = this.state.validation.error;
+    console.log(this.state);
     let errorClass = error ? "error" : "";
     const errMsgs = [
       "Lol, try again. 😀",
-      "Nope, you gotta fill 'em out. 😬",
-      "Almost, but not happening. 😒",
+      "Nope. 😬",
+      "Almost. 😒",
       "Fill those out^^^ 😕"
     ];
     let state = this.state.validation.msg !== "Submit" ? true : false;
@@ -161,7 +162,7 @@ class Contact extends React.Component {
             >
               <input
                 disabled={state}
-                className={errorClass}
+                className={!this.state.inputs.name ? errorClass : ""}
                 name="name"
                 type="text"
                 placeholder="Name"
@@ -171,7 +172,7 @@ class Contact extends React.Component {
               />
               <input
                 disabled={state}
-                className={errorClass}
+                className={!this.state.inputs.email ? errorClass : ""}
                 name="email"
                 type="email"
                 placeholder="Email"
@@ -181,7 +182,7 @@ class Contact extends React.Component {
               />
               <textarea
                 disabled={state}
-                className={errorClass}
+                className={!this.state.inputs.inquiry ? errorClass : ""}
                 name="inquiry"
                 placeholder="Inquiry"
                 autoComplete="off"

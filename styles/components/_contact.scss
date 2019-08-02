@@ -91,6 +91,7 @@
         }
       }
       &.error {
+        border: 1px solid $red;
         animation: grow 0.2s ease-in-out;
       }
     }
