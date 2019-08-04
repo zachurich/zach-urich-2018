@@ -1,7 +1,9 @@
 .contact {
-  padding: 45px 0;
-  @media screen and (min-width: $small) {
-    padding: 60px 0;
+  &:not(.modal) {
+    padding: 45px 0;
+    @media screen and (min-width: $small) {
+      padding: 60px 0;
+    }
   }
   &__heading {
     text-align: center;
