@@ -4,6 +4,7 @@ import axios from "axios";
 import xssFilters from "xss-filters";
 
 import { ENDPOINTS } from "../config";
+import { validForm } from "../helpers";
 
 class Contact extends React.Component {
   constructor(props) {
@@ -17,7 +18,8 @@ class Contact extends React.Component {
       inputs: {
         name: "",
         email: "",
-        inquiry: ""
+        inquiry: "",
+        honey: ""
       },
       useModal: this.props.useModal || null
     };
@@ -31,9 +33,7 @@ class Contact extends React.Component {
   }
   componentDidMount() {
     if (localStorage && localStorage.getItem("contact")) {
-      const { validation, inputs } = JSON.parse(
-        localStorage.getItem("contact")
-      );
+      const { validation, inputs } = JSON.parse(localStorage.getItem("contact"));
       this.setState({
         validation,
         inputs
@@ -54,9 +54,7 @@ class Contact extends React.Component {
     clearTimeout(this.timer);
     const contact = this.state.inputs;
     // get current amount of form submissions
-
-    // prevent more than 2 form submissions
-    if (contact.name && contact.email && contact.inquiry) {
+    if (validForm(contact)) {
       this.setState(previousState => {
         previousState.validation["msg"] = "1 sec...";
         previousState.validation["error"] = false;
@@ -91,14 +89,13 @@ class Contact extends React.Component {
   handleChange(e) {
     const filterType = e.target.name;
     const value = e.target.value;
-    const types = ["name", "email", "inquiry"];
     if (value.includes("<script>")) {
       this.setState(previousState => {
         previousState.validation["msg"] = "Watcha doing there?";
         return previousState;
       });
     } else {
-      types.forEach(type => {
+      Object.keys(this.state.inputs).forEach(type => {
         type == filterType
           ? this.setState(previousState => {
               previousState.validation["error"] = false;
@@ -127,7 +124,6 @@ class Contact extends React.Component {
   }
   render() {
     const error = this.state.validation.error;
-    console.log(this.state);
     let errorClass = error ? "error" : "";
     const errMsgs = [
       "Lol, try again. 😀",
@@ -147,11 +143,7 @@ class Contact extends React.Component {
           }
         }}
       >
-        <div
-          className={`container ${
-            this.state.useModal ? "pattern-background" : ""
-          } `}
-        >
+        <div className={`container ${this.state.useModal ? "pattern-background" : ""} `}>
           <div className="contact__heading heading">
             <h2>Get a Hold of Me</h2>
           </div>
@@ -160,6 +152,20 @@ class Contact extends React.Component {
               className={state ? "disabled" : ""}
               onSubmit={e => this.handleSubmit(e, ReactDOM.findDOMNode(this))}
             >
+              <input
+                disabled={state}
+                style={{
+                  visibility: "hidden",
+                  position: "absolute",
+                  left: "200%"
+                }}
+                name="honey"
+                type="text"
+                placeholder="Field"
+                autoComplete="off"
+                value={this.state.inputs.spamDetector}
+                onChange={this.handleChange}
+              />
               <input
                 disabled={state}
                 className={!this.state.inputs.name ? errorClass : ""}
@@ -191,10 +197,7 @@ class Contact extends React.Component {
               />
               {this.state.useModal ? (
                 <div className="modal__footer">
-                  <div
-                    className="modal__close"
-                    onClick={() => this.props.dismissModal()}
-                  >
+                  <div className="modal__close" onClick={() => this.props.dismissModal()}>
                     <span>Cancel</span>
                   </div>
                   <input

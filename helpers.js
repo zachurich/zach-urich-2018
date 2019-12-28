@@ -20,9 +20,7 @@ export const hoverTransitionEffect = {
     this.hoverPill = document.querySelector(".hoverPill");
     this.items = document.querySelector(".items");
     this.allLinks = document.querySelectorAll(".nav .item");
-    this.start = this.allLinks[0]
-      ? this.allLinks[0].getBoundingClientRect()
-      : null;
+    this.start = this.allLinks[0] ? this.allLinks[0].getBoundingClientRect() : null;
 
     this.allLinks.forEach((link, i) => {
       this.linkStart(this.start);
@@ -32,9 +30,7 @@ export const hoverTransitionEffect = {
         }
         this.linkTrack(link);
       });
-      link.addEventListener("mouseleave", () =>
-        link.classList.remove("active")
-      );
+      link.addEventListener("mouseleave", () => link.classList.remove("active"));
       link.addEventListener("click", () => {
         link.classList.add("hover-cancel");
         this.linkLeave(link);
@@ -47,8 +43,7 @@ export const hoverTransitionEffect = {
     this.hoverPill.style.width = `${rect.width}px`;
     this.hoverPill.style.height = `${rect.height - 20}px`;
     this.hoverPill.style.lineHeight = `${rect.height - 20}px`;
-    this.hoverPill.style.transform = `translate(${rect.x - 2}px, ${rect.y +
-      5}px)`;
+    this.hoverPill.style.transform = `translate(${rect.x - 2}px, ${rect.y + 5}px)`;
   },
   linkTrack(el) {
     const rect = el.getBoundingClientRect();
@@ -56,8 +51,7 @@ export const hoverTransitionEffect = {
     this.hoverPill.style.width = `${rect.width}px`;
     this.hoverPill.style.height = `${rect.height - 20}px`;
     this.hoverPill.style.lineHeight = `${rect.height - 20}px`;
-    this.hoverPill.style.transform = `translate(${rect.x - 2}px, ${rect.y +
-      5}px)`;
+    this.hoverPill.style.transform = `translate(${rect.x - 2}px, ${rect.y + 5}px)`;
     this.hoverPill.style.opacity = "1";
   },
   linkLeave(el) {
@@ -77,8 +71,7 @@ export const scrollToTop = scrollDuration => {
     scrollInterval = setInterval(() => {
       if (window.scrollY != 0) {
         scrollCount = scrollCount + 1;
-        scrollMargin =
-          cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
+        scrollMargin = cosParameter - cosParameter * Math.cos(scrollCount * scrollStep);
         window.scrollTo(0, scrollHeight - scrollMargin);
       } else clearInterval(scrollInterval);
     }, 15);
@@ -128,8 +121,7 @@ export const createAnimatedHeadingHtml = sentence => {
     letter,
     index,
     startOfWord: sentence[index - 1] === " " || index === 0 ? true : false,
-    endOfWord:
-      sentence[index + 1] === " " || index === sentence.length ? true : false
+    endOfWord: sentence[index + 1] === " " || index === sentence.length ? true : false
   }));
   let heading = [];
   letters.map(({ letter, index, startOfWord, endOfWord }) => {
@@ -147,4 +139,11 @@ export const createAnimatedHeadingHtml = sentence => {
   });
 
   return heading.join("");
+};
+
+export const validForm = ({ name, email, inquiry, honey }) => {
+  const allFieldsFilled = name && email && inquiry;
+  const moreThanTwoWords = inquiry.split(" ").length > 2;
+  const spamInputFilledOut = honey;
+  return allFieldsFilled && moreThanTwoWords && !spamInputFilledOut;
 };
