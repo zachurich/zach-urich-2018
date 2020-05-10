@@ -1,5 +1,33 @@
 [
   {
+    "title": "VGShelf",
+    "img": { "src": "static/projects/vgshelf-logo.svg", "alt": "" },
+    "link": "https://vgshelf.co",
+    "tech": [
+      {
+        "name": "Next.js",
+        "link": "https://nextjs.org/"
+      },
+      {
+        "name": "Node.js",
+        "link": "https://nodejs.org/"
+      },
+      {
+        "name": "MongoDB",
+        "link": "https://www.mongodb.com/"
+      },
+      {
+        "name": "Mongoose",
+        "link": "https://mongoosejs.com/"
+      },
+      {
+        "name": "Express",
+        "link": "https://expressjs.com/"
+      }
+    ],
+    "description": "VGShelf lets you keep track of and organize your physical and digital video game collection online. Coming soon!"
+  },
+  {
     "title": "Webnotes",
     "img": { "src": "static/projects/webnotes-logo.svg", "alt": "" },
     "link": "https://zachurich.github.io/webnotes-landing/",
