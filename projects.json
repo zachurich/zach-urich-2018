@@ -1,5 +1,37 @@
 [
   {
+    "title": "Panera",
+    "img": { "src": "static/projects/panera-logo.svg", "alt": "" },
+    "link": "https://www.panerabread.com/en-us/home.html",
+    "tech": [
+      {
+        "name": "React",
+        "link": "https://reactjs.org"
+      },
+      {
+        "name": "TypeScript",
+        "link": "https://www.typescriptlang.org/"
+      },
+      {
+        "name": "Python",
+        "link": "https://www.python.org/"
+      },
+      {
+        "name": "Node.js",
+        "link": "https://nodejs.org/"
+      },
+      {
+        "name": "PostgreSQL",
+        "link": "https://www.postgresql.org/"
+      },
+      {
+        "name": "Chef",
+        "link": "https://www.chef.io/"
+      }
+    ],
+    "description": "Developed and maintained an in-house custom point-of-sale and reporting system for Panera Bread cafes. Most work was with React, Python, and SQL. I also heavily contributed to the DevOps architecture on my team."
+  },
+  {
     "title": "VGShelf",
     "img": { "src": "static/projects/vgshelf-logo.svg", "alt": "" },
     "link": "https://vgshelf.co",
