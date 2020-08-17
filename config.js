@@ -3,50 +3,50 @@ export const SITE_INTRO = "Full Stack Developer and Wanabe Cartoonist.";
 export const ENDPOINTS = {
   blog: "https://wp.zachurichblog.site/wp-json/custom/v1/posts",
   contact: "/.netlify/functions/contact",
-  prismic: "https://zachurichblog.cdn.prismic.io/api/v2"
+  prismic: "https://zachurichblog.cdn.prismic.io/api/v2",
 };
 export const SITE_NAV = [
   {
     path: "/writing",
     icon: "pencil",
-    name: "Writing"
+    name: "Writing",
   },
   {
     path: "/contact",
     icon: "mail",
     name: "Contact",
-    modal: true
+    modal: true,
   },
   {
     path: "http://github.com/zachurich",
     icon: "briefcase",
     name: "Projects",
-    external: true
-  }
+    external: true,
+  },
 ];
 export const SITE_LINKS = [
   {
     name: "Twitter",
-    url: "http://twitter.com/zach462"
+    url: "http://twitter.com/zach462",
   },
   {
     name: "Github",
-    url: "http://github.com/zachurich"
+    url: "http://github.com/zachurich",
   },
   {
     name: "Instagram",
-    url: "http://instagram.com/zachurich"
+    url: "http://instagram.com/zachurich",
   },
   {
     name: "Dribbble",
-    url: "http://dribbble.com/zachurich"
-  }
+    url: "http://dribbble.com/zachurich",
+  },
 ];
 export const ABOUT_CONTENT = `
     <p>
       I'm passionate about learning and creating things. Starting out as a designer, 
       I taught myself how to code out of a desire to build my ideas. I fell in love 
-      with writing code and currently work as a Full Stack Engineer at Panera Bread. Sometimes, 
+      with writing code and currently work as a Software Engineer at <a href="https://envysion.com" target="_blank">Envysion</a>. Sometimes, 
       I 
       <a href="https://www.instagram.com/zacurich/" target="_blank">
         draw</a>,
@@ -60,5 +60,5 @@ export const ABOUT_CONTENT = `
 
 export const WRITING = {
   title: "Sometimes I write things...",
-  subtitle: ""
+  subtitle: "",
 };
