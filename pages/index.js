@@ -1,18 +1,16 @@
-import React from "react";
+import { ABOUT_CONTENT, SITE_LINKS, SITE_NAV } from "../config";
 
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 import Head from "../components/Head";
 import Header from "../components/Header";
 import Intro from "../components/Intro";
-import Status from "../components/Status";
-import Projects from "../components/Projects";
 import Posts from "../components/Posts";
-import Contact from "../components/Contact";
-import Footer from "../components/Footer";
-
-import { SITE_LINKS, SITE_NAV, ABOUT_CONTENT } from "../config";
-
-import projects from "../projects.json";
+import Projects from "../components/Projects";
+import React from "react";
+import Status from "../components/Status";
 import { getPosts } from "../prismic-api";
+import projects from "../projects.json";
 
 export default class Landing extends React.Component {
   static async getInitialProps({ req }) {

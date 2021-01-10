@@ -6,22 +6,22 @@ module.exports = {
   async exportPathMap() {
     const pages = {
       "/": { page: "/" },
-      "/writing": { page: "/writing" }
+      "/writing": { page: "/writing" },
     };
     const response = await fetch(
-      "https://zachurichblog.cdn.prismic.io/api/v2/documents/search?page=1&pageSize=20&ref=XNjSHBEAACQAeibQ"
+      "https://zachurichblog.cdn.prismic.io/api/v2/documents/search?page=1&pageSize=20&ref=X_JG2RMAAJyiOA2m"
     );
     const data = await response.json();
-    const posts = data.results.map(post => {
+    const posts = data.results.map((post) => {
       return {
         [`/writing/${post.uid}`]: {
           page: "/post",
-          query: { slug: post.uid }
-        }
+          query: { slug: post.uid },
+        },
       };
     });
 
-    posts.forEach(post =>
+    posts.forEach((post) =>
       Object.entries(post).map(([path, values]) => (pages[path] = values))
     );
     return pages;
@@ -32,16 +32,16 @@ module.exports = {
         test: /\.(css|scss)/,
         loader: "emit-file-loader",
         options: {
-          name: "dist/[path][name].[ext]"
-        }
+          name: "dist/[path][name].[ext]",
+        },
       },
       {
         test: /\.(svg|png|jpeg)/,
-        loader: "file-loader"
+        loader: "file-loader",
       },
       {
         test: /\.css$/,
-        use: ["babel-loader", "raw-loader", "postcss-loader"]
+        use: ["babel-loader", "raw-loader", "postcss-loader"],
       },
       {
         test: /\.s(a|c)ss$/,
@@ -53,14 +53,14 @@ module.exports = {
             loader: "sass-loader",
             options: {
               includePaths: ["styles", "node_modules"]
-                .map(d => path.join(__dirname, d))
-                .map(g => glob.sync(g))
-                .reduce((a, c) => a.concat(c), [])
-            }
-          }
-        ]
+                .map((d) => path.join(__dirname, d))
+                .map((g) => glob.sync(g))
+                .reduce((a, c) => a.concat(c), []),
+            },
+          },
+        ],
       }
     );
     return config;
-  }
+  },
 };
