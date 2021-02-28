@@ -21,7 +21,7 @@ export default class Landing extends React.Component {
     const { url } = this.props;
     return (
       <div className="fade">
-        <Head url={url} />
+        <Head url={url} title="Zach Urich" />
         <Header />
         <div className="pattern-background">
           <Intro />

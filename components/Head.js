@@ -1,18 +1,12 @@
-import Head from "next/head";
-import ReactGA from "react-ga";
-
-import stylesheet from "../styles/style.scss";
-
-import { formatTitle } from "../helpers";
 import { SITE_INTRO, SITE_TITLE } from "../config";
 
-export default props => (
+import Head from "next/head";
+import stylesheet from "../styles/style.scss";
+
+export default (props) => (
   <div>
     <Head>
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=UA-113781955-1"
-      />
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113781955-1" />
       <script
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer = window.dataLayer || [];
@@ -21,34 +15,23 @@ export default props => (
           }
         gtag('js', new Date());
 
-        gtag('config', 'UA-113781955-1');`
+        gtag('config', 'UA-113781955-1');`,
         }}
       />
-      <title>{`Zach Urich ${
-        props.url ? formatTitle(props.url.asPath) : ""
-      }`}</title>
+      <title>{props.title}</title>
       <meta name="author" content={`${SITE_TITLE} - Full Stack Developer`} />
       <meta name="twitter:site" content="@zachurich" />
       <meta name="twitter:creator" content="@zachurich" />
       <meta property="og:title" content={props.title || "zachurich.com"} />
       <meta property="twitter:title" content={props.title || "zachurich.com"} />
       <meta name="twitter:card" content="summary" />
-      <meta
-        property="og:description"
-        content={props.description || "Zach's Website"}
-      />
+      <meta property="og:description" content={props.description || "Zach's Website"} />
       <meta
         property="twitter:description"
         content={props.description || "Zach's Website"}
       />
-      <meta
-        property="twitter:url"
-        content={`https://zachurich.com${props.url.asPath}`}
-      />
-      <meta
-        property="og:url"
-        content={`https://zachurich.com${props.url.asPath}`}
-      />
+      <meta property="twitter:url" content={`https://zachurich.com${props.url.asPath}`} />
+      <meta property="og:url" content={`https://zachurich.com${props.url.asPath}`} />
       <meta
         name="viewport"
         content="width=device-width,initial-scale=1,maximum-scale=1"

@@ -1,9 +1,4 @@
-/**
- * Mainly stuff I don't want distracting me in my
- * components
- */
-
-export const dummyData = amount => {
+export const dummyData = (amount) => {
   let arr = [];
   for (let i = 0; i < amount; i++) {
     arr.push({ id: i });
@@ -58,11 +53,11 @@ export const hoverTransitionEffect = {
     const rect = el.getBoundingClientRect();
     el.classList.remove("active");
     this.hoverPill.style.opacity = "0";
-  }
+  },
 };
 
 // Provide a ms duration and scroll to the top!
-export const scrollToTop = scrollDuration => {
+export const scrollToTop = (scrollDuration) => {
   const scrollHeight = window.scrollY,
     scrollStep = Math.PI / (scrollDuration / 15),
     cosParameter = scrollHeight / 2;
@@ -77,17 +72,7 @@ export const scrollToTop = scrollDuration => {
     }, 15);
 };
 
-export const formatTitle = path => {
-  if (path && path != "/" && path.indexOf("contact") < 1) {
-    const title = path.split("/").pop();
-    const firstLetter = title.charAt(0).toUpperCase();
-    return `/ ${firstLetter}${title.slice(1)}`;
-  } else {
-    return "";
-  }
-};
-
-export const parallax = selectors => {
+export const parallax = (selectors) => {
   selectors.forEach((selector, i) => {
     let el = document.querySelector(selector);
     window.addEventListener("scroll", () => {
@@ -116,12 +101,12 @@ export function getRandomIndex(arr) {
   return random;
 }
 
-export const createAnimatedHeadingHtml = sentence => {
+export const createAnimatedHeadingHtml = (sentence) => {
   const letters = sentence.split("").map((letter, index) => ({
     letter,
     index,
     startOfWord: sentence[index - 1] === " " || index === 0 ? true : false,
-    endOfWord: sentence[index + 1] === " " || index === sentence.length ? true : false
+    endOfWord: sentence[index + 1] === " " || index === sentence.length ? true : false,
   }));
   let heading = [];
   letters.map(({ letter, index, startOfWord, endOfWord }) => {

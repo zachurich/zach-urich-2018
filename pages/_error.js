@@ -1,15 +1,13 @@
+import { ENDPOINTS, SITE_LINKS, SITE_NAV } from "../config";
+
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
+import FourOhFour from "../components/FourOhFour";
+import Head from "../components/Head";
+import Header from "../components/Header";
 import React from "react";
 import Router from "next/router";
 import axios from "axios";
-import xssFilters from "xss-filters";
-
-import Head from "../components/Head";
-import Header from "../components/Header";
-import FourOhFour from "../components/FourOhFour";
-import Contact from "../components/Contact";
-import Footer from "../components/Footer";
-
-import { ENDPOINTS, SITE_LINKS, SITE_NAV } from "../config";
 import { dummyData } from "../helpers";
 
 export default class Error extends React.Component {
@@ -38,9 +36,9 @@ export default class Error extends React.Component {
     Router.push(`${url.pathname}`);
   }
   fetchPosts() {
-    axios.get(ENDPOINTS.prismic).then(res => {
+    axios.get(ENDPOINTS.prismic).then((res) => {
       this.setState({
-        posts: res.data.items
+        posts: res.data.items,
       });
     });
   }
@@ -48,7 +46,7 @@ export default class Error extends React.Component {
     const { url } = this.props;
     return (
       <div className="pattern-background">
-        <Head />
+        <Head title="Not Found" />
         <Header showModal={this.showModal} />
         <FourOhFour url={url.pathname} />
         {url.query.contact && (

@@ -18,7 +18,7 @@ class Writing extends React.Component {
     const { url } = this.props;
     return (
       <div className="blog pattern fade">
-        <Head url={url} />
+        <Head url={url} title="Writing" />
         <Header url={url} />
         <Hero title={WRITING.title} description={WRITING.subtitle} />
         {this.props.posts.length > 0 ? (
