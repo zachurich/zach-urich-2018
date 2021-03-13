@@ -1,7 +1,6 @@
 export const SITE_TITLE = "Zach Urich";
 export const SITE_INTRO = "Full Stack Developer and Wanabe Cartoonist.";
 export const ENDPOINTS = {
-  blog: "https://wp.zachurichblog.site/wp-json/custom/v1/posts",
   contact: "/.netlify/functions/contact",
   prismic: "https://zachurichblog.cdn.prismic.io/api/v2",
 };
@@ -26,16 +25,12 @@ export const SITE_NAV = [
 ];
 export const SITE_LINKS = [
   {
-    name: "Twitter",
-    url: "http://twitter.com/zach462",
+    name: "Instagram",
+    url: "http://instagram.com/zachurich",
   },
   {
     name: "Github",
     url: "http://github.com/zachurich",
-  },
-  {
-    name: "Instagram",
-    url: "http://instagram.com/zachurich",
   },
   {
     name: "Dribbble",

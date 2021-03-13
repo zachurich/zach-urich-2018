@@ -1,6 +1,6 @@
 import React from "react";
 
-const Status = props => {
+const Status = (props) => {
   return (
     <section className="status wrapper">
       <div className="container">
@@ -12,7 +12,9 @@ const Status = props => {
             className="status__text"
             dangerouslySetInnerHTML={{ __html: props.content }}
           />
-          <div className="status__img" />
+          <div className="status__img">
+            <img src="/static/me_square.JPG"></img>
+          </div>
         </div>
       </div>
     </section>

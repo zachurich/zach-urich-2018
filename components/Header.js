@@ -1,26 +1,23 @@
-import React from "react";
+import { SITE_NAV, SITE_TITLE } from "../config";
+
 import Link from "next/link";
-
-import { SITE_TITLE, SITE_NAV } from "../config";
-
 import Nav from "./Nav";
+import React from "react";
 
 class Header extends React.Component {
   state = {
-    theme: "light"
+    theme: "light",
   };
   componentDidMount() {
     let theme = JSON.parse(localStorage.getItem("theme"));
     if (localStorage && localStorage.getItem("theme")) {
       this.setState({ theme }, () => {
         if (typeof document != "undefined") {
-          document
-            .querySelector("body")
-            .classList.add(`${this.state.theme}-theme`);
+          document.querySelector("body").classList.add(`${this.state.theme}-theme`);
         }
       });
     }
-    document.addEventListener("touchstart", function() {}, true);
+    document.addEventListener("touchstart", function () {}, true);
   }
   switchTheme = () => {
     let theme = this.state.theme === "dark" ? "light" : "dark";
@@ -44,7 +41,7 @@ class Header extends React.Component {
           <Nav nav={SITE_NAV} onlyIcons={false} url={this.props.url || null} />
         </div>
         <div className="theme-toggle" onClick={() => this.switchTheme()}>
-          {this.state.theme === "dark" ? "light" : "dark"} Theme
+          {this.state.theme === "dark" ? "light" : "dark"}
         </div>
       </header>
     );

@@ -19,7 +19,9 @@
     background: white;
     border-radius: 10px;
     box-shadow: $trendyShadow;
-    @media screen and (min-width: $smaller) {
+    padding: 40px 30px;
+    @media screen and (min-width: $small) {
+      padding: 30px 50px;
       flex-wrap: nowrap;
     }
     p:last-child {
@@ -32,47 +34,31 @@
     align-items: center;
     flex-basis: 100%;
     text-align: center;
-    padding: 40px 30px;
     font-weight: 500;
-    @media screen and (min-width: $smallest) {
-      padding: 40px 60px;
-    }
-    @media screen and (min-width: $smaller) {
+    @media screen and (min-width: $small) {
       text-align: left;
-      flex-basis: 50%;
+      flex-basis: 70%;
+      margin-right: 20px;
     }
   }
 
   &__img {
-    background-image: url("/static/me_square.JPG");
-    background-color: white;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 10px 10px 0 0;
-    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-basis: 100%;
-    @media screen and (min-width: $smallest) {
-      min-height: 400px;
-    }
-    @media screen and (min-width: $smaller) {
-      border-radius: 0 10px 10px 0;
-      border: none;
-      background-image: url("/static/me_portrait.JPG");
-      margin-bottom: 0;
-      flex-basis: 50%;
+    @media screen and (min-width: $small) {
+      flex-basis: 30%;
     }
 
     img {
+      max-width: 150px;
       display: block;
-      border-radius: 5px;
+      border-radius: 50%;
       box-shadow: $diffusedShadow;
-      background-color: #ddd;
-      max-width: 100%;
-      width: 300px;
-      margin: 0 auto;
-      @media screen and (min-width: $smaller) {
-        margin: 0;
+      margin-bottom: 20px;
+      @media screen and (min-width: $small) {
+        margin-bottom: 0;
         max-width: 100%;
       }
     }
@@ -82,9 +68,9 @@
 .dark-theme .status {
   &__box {
     box-shadow: $darkThemeShadow;
+    background-color: $black;
   }
   &__text {
-    background-color: $black;
     border-radius: 10px 0 0 10px;
     p {
       color: $bodyColor;
