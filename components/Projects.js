@@ -37,10 +37,11 @@ const Projects = (props) => {
     return projects.map((project, index) => (
       <div key={index} className={`project project--${index + 1}`}>
         <button
+          name={`project-${project.title.toLowerCase().replace(/\s/g, "-")}-button`}
           className="project__image button-transitions"
           onClick={() => handleToggle(true, { ...project, index })}
         >
-          <img src={project.img.src} alt={project.img.alt} />
+          <img src={project.img.src} alt={`${project.title} logo`} />
         </button>
       </div>
     ));

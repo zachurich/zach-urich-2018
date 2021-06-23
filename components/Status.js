@@ -13,7 +13,7 @@ const Status = (props) => {
             dangerouslySetInnerHTML={{ __html: props.content }}
           />
           <div className="status__img">
-            <img src="/static/me_square.JPG"></img>
+            <img src="/static/me_square.JPG" alt="Me" />
           </div>
         </div>
       </div>
